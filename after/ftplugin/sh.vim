@@ -1,0 +1,2 @@
+" Comment
+call CommentFormat("# ")
