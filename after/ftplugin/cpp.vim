@@ -15,7 +15,7 @@ call CommentFormat("// ")
     \<CR>int main(){
     \<CR><CR>
     \<CR>return 0;
-    \}<BS><UP><C-R>=Eatchar('\m\s\<bar>\r')<CR>
+    \}<UP><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 
 " Title information
 function! AddTitle()
