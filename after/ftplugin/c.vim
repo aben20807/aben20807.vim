@@ -14,7 +14,7 @@ call CommentFormat("// ")
     \<CR>int main(int argc, char *argv[]){
     \<CR><CR>
     \<CR>return 0;
-    \}<UP><C-R>=Eatchar('\m\s\<bar>\r')<CR>
+    \<CR>}<UP><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 
 " Title information
 function! AddTitle()
