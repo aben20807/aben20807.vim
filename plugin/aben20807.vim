@@ -130,7 +130,7 @@ augroup END
 
 " --- other important function ---
 " eat char c if c is one member of pat
-function Eatchar(pat)
+function! Eatchar(pat)
     let c = nr2char(getchar(0))
     return (c =~ a:pat)? '': c
 endfunction
@@ -149,7 +149,7 @@ endfunction
 
 " remove trailing whitespace when writing a buffer, but not for diff files.
 " From: Vigil <vim5632@rainslide.net>
-function RemoveTrailingWhitespace()
+function! RemoveTrailingWhitespace()
     if &ft != "diff"
         let b:curcol = col(".")
         let b:curline = line(".")
