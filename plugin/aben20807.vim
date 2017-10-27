@@ -118,10 +118,6 @@ if has('clipboard')
     endif
 endif
 
-if filereadable(expand("~/.comment.vim"))
-   source ./.comment.vim
-endif
-
 " file type
 augroup project
     autocmd!
