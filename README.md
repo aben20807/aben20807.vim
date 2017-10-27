@@ -2,6 +2,7 @@ aben20807.vim
 ===
 
 ## Installation
+### Method 1:
 1. Install [Vundle](https://github.com/VundleVim/Vundle.vim).
 
 ```sh
@@ -47,3 +48,14 @@ $ mv .vim/bundle/aben20807.vim/.vimrc /home/user/
 ```sh
 $ mv .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-themes/autoload/airline/themes/
 ```
+
+### Method 2:
+1. Same as Method 1's step 1.
+2. Download [.vimrc](https://github.com/aben20807/aben20807.vim/blob/master/.vimrc).
+3. Open vim and run following command.
+
+```
+:PluginInstall
+```
+
+4. Same as Method 1's step 6.
