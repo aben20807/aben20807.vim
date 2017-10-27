@@ -78,10 +78,10 @@ nnoremap t o<ESC>
 nnoremap T O<ESC>
 
 " copy or cut to system clipboard
-vnoremap y "+y
-nnoremap yy "+yy
-vnoremap d "+d
-nnoremap dd "+dd
+" vnoremap y "+y
+" nnoremap yy "+yy
+" vnoremap d "+d
+" nnoremap dd "+dd
 
 " paste in insert mode
 inoremap <M-p> <ESC>pi<Right>
