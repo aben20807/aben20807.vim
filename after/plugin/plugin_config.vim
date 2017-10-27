@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
-" Filename: aben20807.vim
-" Last Modified: 2017-10-27 17:39:49
+" Filename: plugin_config.vim
+" Last Modified: 2017-10-27 20:16:49
 " Vim: enc=utf-8
 
 " Config of all plugin
@@ -48,8 +48,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.notexists = ' Φ'
-map <F6> :bp!<CR>
-map <F7> :bn!<CR>
 
 " airline git symbol
 Plugin 'tpope/vim-fugitive'

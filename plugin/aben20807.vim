@@ -12,6 +12,12 @@ set cursorline
 " hilight current column
 "set cursorcolumn
 
+" --- leader key ---
+" global leader
+let mapleader = ','
+" local leader
+" let maplocalleader = '_'
+
 " command abbreviate
 cnoreabbrev WQ wq
 cnoreabbrev Wq wq
@@ -110,13 +116,13 @@ nnoremap <F2> :set norelativenumber!<CR>:set nonumber!<CR>
 :set relativenumber
 
 " let clipboard be the same between vim and os
-if has('clipboard')
-    if has('unnamedplus')
-        set clipboard=unnamedplus
-    else
-        set clipboard=unnamed
-    endif
-endif
+" if has('clipboard')
+"     if has('unnamedplus')
+"         set clipboard=unnamedplus
+"     else
+"         set clipboard=unnamed
+"     endif
+" endif
 
 " file type
 augroup project

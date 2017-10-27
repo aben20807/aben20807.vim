@@ -180,16 +180,12 @@ endfunction
 command -nargs=+ S call s:surround(<f-args>)
 nnoremap <silent> <Plug>SurroundNadd :<C-u>call <SID>surroundNadd(v:count1)<CR>
 vnoremap <silent> <Plug>SurroundVadd :<C-u>call <SID>surroundVadd(visualmode())<CR>
-nmap <M-s> <Plug>SurroundNadd
-vmap <M-s> <Plug>SurroundVadd
-nmap gs <M-s>
-vmap gs <M-s>
+nmap <leader>s <Plug>SurroundNadd
+vmap <leader>s <Plug>SurroundVadd
 
 nnoremap <silent> <Plug>SurroundNdel :<C-u>call <SID>surroundNdel()<CR>
-nmap <M-d> <Plug>SurroundNdel
-nmap ds <M-d>
+nmap <leader>d <Plug>SurroundNdel
 
 
 nnoremap <silent> <Plug>SurroundNrep :<C-u>call <SID>surroundNrep()<CR>
-nmap <M-f> <Plug>SurroundNrep
-nmap df <M-f>
+nmap <leader>f <Plug>SurroundNrep
