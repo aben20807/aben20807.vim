@@ -37,18 +37,14 @@ let g:airline_mode_map = {
 let g:airline#extensions#ale#enabled = 1
 let airline#extensions#ale#error_symbol = 'E'
 let airline#extensions#ale#warning_symbol = 'W'
-let g:airline_left_sep = '»'
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = '«'
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.notexists = ' Φ'
-
+let g:airline_left_sep = '>'
+let g:airline_left_alt_sep = '>'
+let g:airline_right_sep = '<'
+let g:airline_right_alt_sep = '<'
+let g:airline_symbols.branch = 'B'
+let g:airline_symbols.readonly = 'R'
+let g:airline_symbols.notexists = '?'
+"
 " airline git symbol
 " Plugin 'tpope/vim-fugitive'
 
