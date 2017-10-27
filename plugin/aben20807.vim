@@ -118,6 +118,10 @@ if has('clipboard')
     endif
 endif
 
+if filereadable(expand("~/.comment.vim"))
+   source ./.comment.vim
+endif
+
 " file type
 augroup project
     autocmd!
@@ -206,4 +210,50 @@ function! CompileAndRun()
         endif
     endif
     execute "ALEEnable"
+endfunction
+
+" add author information
+" Ref: http://www.gegugu.com/2016/02/11/17175.html
+" add or update
+map <F4> :call TitleDet()<CR>
+" autocmd BufWritePre,VimLeavePre * call TitleDet()
+function! AddTitle()
+endfunction
+function UpdateTitle()
+    if &filetype == 'python'
+        normal m'
+        execute '/# *Last Modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
+        normal ''
+        normal mk
+        execute '/# *Filename:/s@:.*$@\=": ".expand("%:t")@'
+    elseif &filetype == 'vim'
+        normal m'
+        execute '/\" *Last Modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
+        normal ''
+        normal mk
+        execute '/\" *Filename:/s@:.*$@\=": ".expand("%:t")@'
+    elseif &filetype == 'c' || &filetype == 'cpp' || &filetype == 'rust'
+        normal m'
+        execute '/\/\/ *Last Modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
+        normal ''
+        normal mk
+        execute '/\/\/ *Filename:/s@:.*$@\=": ".expand("%:t")@'
+    endif
+    execute "noh"
+    normal 'k
+endfunction
+
+function! TitleDet()
+    let n=1
+    while n < 5
+        let line = getline(n)
+        if line =~ '^\#\s*\S*Last\sModified:\S*.*$' ||
+          \line =~ '^\/\/\s*\S*Last\sModified:\S*.*$' ||
+          \line =~ '^\"\s*\S*Last\sModified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n = n + 1
+    endwhile
+    call AddTitle()
 endfunction
