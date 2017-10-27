@@ -3,13 +3,25 @@
 " Last Modified: 2017-07-27 09:17:35
 " Vim: enc=utf-8
 
+" let <F> key not type in insert mode
+inoremap <F2>  <NOP>
+inoremap <F3>  <NOP>
+inoremap <F4>  <NOP>
+inoremap <F5>  <NOP>
+inoremap <F6>  <NOP>
+inoremap <F8>  <NOP>
+inoremap <F9>  <NOP>
+inoremap <F10> <NOP>
+inoremap <F11> <NOP>
+inoremap <F12> <NOP>
+
 " buffer move
 map <F6> :bp!<CR>
 map <F7> :bn!<CR>
-nnoremap <silent> <C-l>     :bn!<CR>
-nnoremap <silent> <C-h>     :bp!<CR>
-nnoremap <silent> <C-k>     :bp!<CR>
-nnoremap <silent> <C-j>     :bn!<CR>
+nnoremap <silent> <C-l> :bn!<CR>
+nnoremap <silent> <C-h> :bp!<CR>
+nnoremap <silent> <C-k> :bp!<CR>
+nnoremap <silent> <C-j> :bn!<CR>
 
 " exit vim
 nnoremap <F10> :exec "q!"<CR>
