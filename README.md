@@ -59,3 +59,10 @@ $ mv .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-the
 ```
 
 4. Same as Method 1's step 6.
+
+## Other
++ .bashrc PS1 setting
+
+```sh
+PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
+```
