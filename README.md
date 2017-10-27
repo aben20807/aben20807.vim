@@ -41,3 +41,9 @@ $ mv .vim/bundle/aben20807.vim/.vimrc /home/user/
 ```
 :PluginInstall
 ```
+
+6. Move airline theme.
+
+```sh
+$ mv .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-themes/autoload/airline/themes/
+```
