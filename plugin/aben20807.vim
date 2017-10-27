@@ -12,6 +12,11 @@ set cursorline
 " hilight current column
 "set cursorcolumn
 
+" let italic enable
+" Ref: https://askubuntu.com/a/514524
+set t_ZH=[3m
+set t_ZR=[23m
+
 " --- leader key ---
 " global leader
 let mapleader = ','

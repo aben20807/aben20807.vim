@@ -1,3 +1,8 @@
+" Author: Huang Po-Hsuan <aben20807@gmail.com>
+" Filename: .vimrc
+" Last Modified: 2017-10-27 21:54:33
+" Vim: enc=utf-8
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
