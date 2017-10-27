@@ -50,7 +50,7 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.notexists = ' Φ'
 
 " airline git symbol
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 " --- scrooloose/nerdtree ---
 " Plugin 'scrooloose/nerdtree'
@@ -121,7 +121,7 @@ autocmd VimEnter,Colorscheme * :hi ALEErrorLine     cterm=NONE
 autocmd VimEnter,Colorscheme * :hi ALEError         cterm=NONE ctermfg=251 ctermbg=160
 autocmd VimEnter,Colorscheme * :hi ALEWarning       cterm=NONE ctermfg=251 ctermbg=166
 
-Plugin 'rust-lang/rust.vim'
+" Plugin 'rust-lang/rust.vim'
 
 " --- maralla/completor.vim ---
 " Plugin 'maralla/completor.vim'
