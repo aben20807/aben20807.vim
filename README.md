@@ -74,8 +74,8 @@ PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
 
 ```
 [user]
-	name = aben20807
-	email = aben20807@gmail.com
+    name = aben20807
+    email = aben20807@gmail.com
 [alias]
     aa = add --all
     st = status
