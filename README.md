@@ -61,8 +61,26 @@ $ mv .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-the
 4. Same as Method 1's step 6.
 
 ## Other
++ screenshot
+![](https://imgur.com/8aNemHB.png)
+
 + .bashrc PS1 setting
 
 ```sh
 PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
+```
+
++ .gitconfig
+
+```
+[user]
+	name = aben20807
+	email = aben20807@gmail.com
+[alias]
+    aa = add --all
+    st = status
+    graph = log --pretty=oneline --decorate --graph
+    lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    st-u = ls-files . --exclude-standard --others
+    st-i = ls-files . --ignored --exclude-standard --others
 ```
