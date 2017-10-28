@@ -17,24 +17,24 @@ function! AddTitle()
 endfunction
 
 " Abbreviations
-:iab <buffer> <expr> fn CodeAbbr("fn", "fn<SPACE><SPACE>{<CR>
+:iab <buffer> <expr> fn CodeAbbr("fn", "fn<SPACE><SPACE>{<CR>}
     \<UP><ESC><S-^>f{hi<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
-:iab <buffer> <expr> struct CodeAbbr("struct", "struct<SPACE><SPACE>{<CR>
+:iab <buffer> <expr> struct CodeAbbr("struct", "struct<SPACE><SPACE>{<CR>}
     \<UP><ESC><S-^>f{hi<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
-:iab <buffer> <expr> enum CodeAbbr("enum", "enum<SPACE><SPACE>{<CR>
+:iab <buffer> <expr> enum CodeAbbr("enum", "enum<SPACE><SPACE>{<CR>}
     \<UP><ESC><S-^>f{hi<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
-:iab <buffer> <expr> if CodeAbbr("if", "if<SPACE><SPACE>{<CR>
+:iab <buffer> <expr> if CodeAbbr("if", "if<SPACE><SPACE>{<CR>}
     \<UP><ESC><S-^>f{hi<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
-:iab <buffer> <expr> for CodeAbbr("for", "for<SPACE><SPACE>{<CR>
+:iab <buffer> <expr> for CodeAbbr("for", "for<SPACE><SPACE>{<CR>}
     \<UP><ESC><S-^>f{hi<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
-:iab <buffer> <expr> while CodeAbbr("while", "while<SPACE><SPACE>{<CR>
+:iab <buffer> <expr> while CodeAbbr("while", "while<SPACE><SPACE>{<CR>}
     \<UP><ESC><S-^>f{hi<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
-:iab <buffer> <expr> loop CodeAbbr("loop", "loop<SPACE>{<CR>
+:iab <buffer> <expr> loop CodeAbbr("loop", "loop<SPACE>{<CR>}
     \<C-R>=Eatchar(\'\\m\\s\\<bar>\\r\')<CR>
     \")
