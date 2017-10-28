@@ -23,6 +23,11 @@ nnoremap <silent> <C-h> :bp!<CR>
 nnoremap <silent> <C-k> :bp!<CR>
 nnoremap <silent> <C-j> :bn!<CR>
 
+" buffer map
+for i in range(1, 9)
+    exec 'noremap <Leader>'.i.' :'.i.'b!<CR>'
+endfor
+
 " exit vim
 nnoremap <F10> :exec "q!"<CR>
 nnoremap <F11> :exec "up"<CR>
