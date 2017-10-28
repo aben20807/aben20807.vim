@@ -91,8 +91,8 @@ nnoremap <F3> :IndentLinesToggle<CR>
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'c': ['clang'],
-\   'cpp': ['clang'],
+\   'c': ['clang', 'gcc'],
+\   'cpp': ['clang', 'gcc'],
 \   'python': ['pylint'],
 \   'vim': ['vint'],
 \   'rust': ['rustc', 'cargo']
