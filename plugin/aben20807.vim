@@ -33,6 +33,12 @@ cnoreabbrev db bd
 " let cursor in the middle of screen when entering vim
 autocmd VimEnter * :exec "normal! \zz"
 
+" return to last edit position when opening files
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line('$') |
+\   exe "normal! g`\"" |
+\ endif
+
 " keep 3 lines below and above the cursor
 set scrolloff=3
 
