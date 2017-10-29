@@ -121,7 +121,7 @@ function! Terminal_MetaMode(mode)
     endfor
     for i in range(26)
         call s:metacode(a:mode, nr2char(char2nr('a') + i))
-        call s:metacode(a:mode, nr2char(char2nr('A') + i))
+        " call s:metacode(a:mode, nr2char(char2nr('A') + i)) " Ubuntu F2, F3
     endfor
     if a:mode != 0
         for c in [',', '.', '/', ';', '[', ']', '{', '}']
