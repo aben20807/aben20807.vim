@@ -61,8 +61,11 @@ $ mv .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-the
 4. Same as Method 1's step 6.
 
 ## Other
-+ screenshot
-![](https://imgur.com/8aNemHB.png)
++ Browser setting
+
+```vim
+let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
+```
 
 + .bashrc PS1 setting
 
@@ -84,3 +87,6 @@ PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
     st-u = ls-files . --exclude-standard --others
     st-i = ls-files . --ignored --exclude-standard --others
 ```
+
++ screenshot
+![](https://imgur.com/8aNemHB.png)

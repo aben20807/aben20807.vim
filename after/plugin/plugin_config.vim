@@ -22,18 +22,18 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_mode_map = {
-    \ '__' : '-',
-    \ 'n'  : 'N',
-    \ 'i'  : 'I',
-    \ 'R'  : 'R',
-    \ 'c'  : 'C',
-    \ 'v'  : 'V',
-    \ 'V'  : 'V',
-    \ '' : 'V',
-    \ 's'  : 'S',
-    \ 'S'  : 'S',
-    \ '' : 'S',
-    \ }
+            \ '__' : '-',
+            \ 'n'  : 'N',
+            \ 'i'  : 'I',
+            \ 'R'  : 'R',
+            \ 'c'  : 'C',
+            \ 'v'  : 'V',
+            \ 'V'  : 'V',
+            \ '' : 'V',
+            \ 's'  : 'S',
+            \ 'S'  : 'S',
+            \ '' : 'S',
+            \ }
 let g:airline#extensions#ale#enabled = 1
 let airline#extensions#ale#error_symbol = 'E'
 let airline#extensions#ale#warning_symbol = 'W'
@@ -65,8 +65,8 @@ let NERDTreeWinSize=25
 
 function! s:ShowFilename()
     redraw | echohl Debug |
-        \ echom index(["\" Press ? for help", "", ".. (up a dir)"], getline(".")) < 0 ?
-        \ "NERDTree: " . matchstr(getline("."), "[0-9A-Za-z_/].*") : "" | echohl None
+                \ echom index(["\" Press ? for help", "", ".. (up a dir)"], getline(".")) < 0 ?
+                \ "NERDTree: " . matchstr(getline("."), "[0-9A-Za-z_/].*") : "" | echohl None
 endfunction
 autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 
@@ -90,13 +90,13 @@ nnoremap <F3> :IndentLinesToggle<CR>
 " Plugin 'w0rp/ale'
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'c': ['clang', 'gcc'],
-\   'cpp': ['clang', 'gcc'],
-\   'python': ['pylint'],
-\   'vim': ['vint'],
-\   'rust': ['rustc', 'cargo']
-\}
+            \   'javascript': ['eslint'],
+            \   'c': ['clang', 'gcc'],
+            \   'cpp': ['clang', 'gcc'],
+            \   'python': ['pylint'],
+            \   'vim': ['vint'],
+            \   'rust': ['rustc', 'cargo']
+            \}
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -136,8 +136,8 @@ function! CompletorToggle()
     set noshowmode
     redraw
     echohl WarningMsg
-        echo "   ❖  completor ".((g:completor_auto_trigger==0)? "關閉": "開啟")." ❖ "
-        echo ""
+    echo "   ❖  completor ".((g:completor_auto_trigger==0)? "關閉": "開啟")." ❖ "
+    echo ""
     echohl NONE
     set showmode
 endfunction
@@ -155,6 +155,13 @@ let c_no_curly_error=1
 
 " --- iamcco/markdown-preview.vim ---
 " Plugin 'iamcco/markdown-preview.vim'
-let g:mkdp_path_to_chrome = "cygstart /chrome.lnk"
+if !exists('g:browser')
+    let g:browser = 0
+endif
+if g:browser == 0 " chrome in cygwin
+    let g:mkdp_path_to_chrome = "cygstart /chrome.lnk"
+else " firefox
+    let g:mkdp_path_to_chrome = "/usr/bin/firefox"
+endif
 let g:mkdp_auto_close = 0
 let g:mkdp_auto_start = 0

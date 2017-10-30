@@ -3,6 +3,7 @@
 " Last Modified: 2017-10-27 21:54:33
 " Vim: enc=utf-8
 
+let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
