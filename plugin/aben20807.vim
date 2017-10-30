@@ -11,6 +11,7 @@ colorscheme ouo
 set cursorline
 " hilight current column
 "set cursorcolumn
+set colorcolumn=80
 
 " let italic enable
 " Ref: https://askubuntu.com/a/514524
