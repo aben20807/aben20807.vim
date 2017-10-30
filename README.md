@@ -73,6 +73,14 @@ let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
 PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
 ```
 
++ Disable cursor blink in ubuntu
+
+```
+$ gconf-editor  " if is not installed: sudo apt-get install gconf-editor
+```
+Goto /apps/gnome-terminal/profiles/Default
+Find cursor_blink_mode and change its value to off.
+
 + .gitconfig
 
 ```
