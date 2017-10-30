@@ -152,7 +152,6 @@ function! Eatchar(pat)
     return (c =~ a:pat)? '': c
 endfunction
 
-
 " check if can use abbreviate (skip comment、const、string)
 " Ref: https://superuser.com/questions/487603/abbreviations-override-in-comments-and-quoted-text
 function! CodeAbbr(abbr, str)
