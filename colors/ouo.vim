@@ -138,7 +138,7 @@ if &t_Co > 255
     hi IncSearch        cterm=NONE ctermfg=0 ctermbg=172
     hi LineNr           ctermfg=245                 "行號
     hi CursorLineNr     ctermfg=11                  "目前行號
-    hi MatchParen       cterm=NONE ctermfg=0 ctermbg=11 "配對的括號
+    hi MatchParen       cterm=NONE ctermfg=11 ctermbg=0 "配對的括號
     hi ModeMsg          cterm=NONE ctermfg=brown
     hi MoreMsg          ctermfg=135                 "--尚有--
     hi NonText          cterm=NONE ctermfg=245      "最後一行以下的~
