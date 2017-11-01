@@ -18,6 +18,11 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping=1
+let g:multi_cursor_next_key='<C-o>' "選中一個
+let g:multi_cursor_prev_key='<C-p>' "放棄一個，回到
+let g:multi_cursor_skip_key='<C-x>' "跳過
+let g:multi_cursor_quit_key='<Esc>' "退出
 Plugin 'Yggdroot/indentLine'
 Plugin 'w0rp/ale'
 Plugin 'rust-lang/rust.vim'
