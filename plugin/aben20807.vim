@@ -78,6 +78,9 @@ set nowrap
 " show detailed mode
 set showmode
 
+" let labels not auto indent
+set cinoptions+=L0
+
 " --- search ---
 " hilight serach result
 set hlsearch
