@@ -73,6 +73,12 @@ let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
 PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
 ```
 
++ .bashrc alias
+
+```sh
+alias ls='ls -F --color=tty --show-control-chars'
+```
+
 + Disable cursor blink in ubuntu
 
 ```
