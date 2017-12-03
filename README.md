@@ -101,6 +101,18 @@ Find `cursor_blink_mode` and change its value to `off`.
     lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     st-u = ls-files . --exclude-standard --others
     st-i = ls-files . --ignored --exclude-standard --others
+[core]
+    editor = /usr/bin/vim
+```
+
++ .astylerc
+```
+--style=linux
+--indent=tab
+--max-code-length=80
+--pad-oper
+--pad-comma
+--pad-header
 ```
 
 + screenshot
