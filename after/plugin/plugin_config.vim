@@ -73,11 +73,6 @@ autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 " --- terryma/vim-multiple-cursors ---
 " Plugin 'terryma/vim-multiple-cursors'
 "http://www.wklken.me/posts/2015/06/07/vim-plugin-multiplecursors.html
-" let g:multi_cursor_use_default_mapping=1
-" let g:multi_cursor_next_key='<C-o>' "選中一個
-" let g:multi_cursor_prev_key='<C-p>' "放棄一個，回到上一個
-" let g:multi_cursor_skip_key='<C-x>' "跳過
-" let g:multi_cursor_quit_key='<Esc>' "退出
 
 " --- Yggdroot/indentLine ---
 " Plugin 'Yggdroot/indentLine'
@@ -165,3 +160,7 @@ else " firefox
 endif
 let g:mkdp_auto_close = 0
 let g:mkdp_auto_start = 0
+
+"--- pseewald/vim-anyfold ---"
+let anyfold_activate=1
+set foldlevel=0

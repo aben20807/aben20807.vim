@@ -3,9 +3,9 @@
 " Last Modified: 2017-10-27 21:54:33
 " Vim: enc=utf-8
 
-let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
-set nocompatible              " be iMproved, required
-filetype off                  " required
+let g:browser = 0           " 0 for chrome in cygwin, 1 for firefox in ubuntu
+set nocompatible            " be iMproved, required
+filetype off                " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -29,6 +29,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'maralla/completor.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'pseewald/vim-anyfold'
 Plugin 'aben20807/aben20807.vim'
 
 call vundle#end()            " required
