@@ -56,6 +56,10 @@ nnoremap <M-h> 5h
 nnoremap <M-j> 5j
 nnoremap <M-k> 5k
 nnoremap <M-l> 5l
+vnoremap <M-h> 5h
+vnoremap <M-j> 5j
+vnoremap <M-k> 5k
+vnoremap <M-l> 5l
 
 " move in insert mode
 inoremap <M-h> <Left>
