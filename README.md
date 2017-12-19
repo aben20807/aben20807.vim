@@ -59,6 +59,7 @@ Find `cursor_blink_mode` and change its value to `off`.
 [alias]
     aa = add --all
     st = status
+    cmt = commit
     graph = log --pretty=oneline --decorate --graph
     lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
     st-u = ls-files . --exclude-standard --others
