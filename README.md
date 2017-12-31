@@ -49,6 +49,11 @@ $ gconf-editor  " if is not installed: sudo apt-get install gconf-editor
 
 Goto `/apps/gnome-terminal/profiles/Default`
 Find `cursor_blink_mode` and change its value to `off`.
+or
+[Try (in a terminal):](https://askubuntu.com/a/311905)
+```
+$ gsettings set org.gnome.desktop.interface cursor-blink false
+```
 
 + .gitconfig
 
