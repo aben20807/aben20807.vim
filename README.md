@@ -55,6 +55,8 @@ or
 $ gsettings set org.gnome.desktop.interface cursor-blink false
 ```
 
++ [Disable the HUD's use of the Alt key](https://askubuntu.com/a/122232)
+
 + .gitconfig
 
 ```
