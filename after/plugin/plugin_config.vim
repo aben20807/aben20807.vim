@@ -163,4 +163,4 @@ let g:mkdp_auto_start = 0
 
 "--- pseewald/vim-anyfold ---"
 let anyfold_activate=1
-set foldlevel=0
+set foldlevel=30
