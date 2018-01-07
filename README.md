@@ -22,13 +22,27 @@ Step 4. Move airline theme.
 $ cp .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-themes/autoload/airline/themes/
 ```
 
-## Other
+## Function
 + Browser setting
 
 ```vim
 let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
 ```
 
++ ale c compiler flag
+```vim
+let g:ale_c_gcc_options='-std=gnu99 -Wall'
+```
+
++ <F5> to compile and run
+```vim
+elseif &filetype == 'c'
+    " execute "!cd .. && ./test.sh"
+    " execute "!gcc -std=gnu99 -Wall % -o /tmp/a.out && time /tmp/a.ou
+    " execute "!gcc -std=c11 % -o /tmp/a.out && time /tmp/a.out"
+```
+
+## Other
 + .bashrc PS1 setting
 
 ```sh
@@ -83,11 +97,6 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
 --pad-oper
 --pad-comma
 --pad-header
-```
-
-+ ale c compiler flag
-```vim
-let g:ale_c_gcc_options='-std=gnu99 -Wall'
 ```
 
 + screenshot
