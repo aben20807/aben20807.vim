@@ -60,11 +60,11 @@ Can color the gcc output by press 'm' to make
 ```sh
 m(){
     make ${@} 2>&1 | perl -wln -M'Term::ANSIColor' -e '
-    m/Building|gcc|g\+\+|\bCC\b|\bcc\b/ and print "\e[0;32m", "$_", "\e[0m"
+    m/Building|gcc|g\+\+|\bCC\b|\bcc\b/ and print "\e[0;34m", "$_", "\e[0m"
     or
     m/Error/i and print "\e[0;91m", "$_", "\e[0m"
     or
-    m/Warning/i and print "\e[0;93m", "$_", "\e[0m"
+    m/Warning/i and print "\033[38;5;208;48;5;235m", "$_", "\e[0m"
     or
     m/Linking|\.a\b/ and print "\e[0;36m", "$_", "\e[0m"
     or
@@ -72,7 +72,7 @@ m(){
 }
 ```
 
-![color gcc](https://imgur.com/zP4VTp9.png)
+![color gcc](https://imgur.com/5oVwklq.png)
 
 + Disable cursor blink in ubuntu
 
@@ -119,4 +119,5 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
 ```
 
 + screenshot
+
 ![screenshot](https://imgur.com/8aNemHB.png)
