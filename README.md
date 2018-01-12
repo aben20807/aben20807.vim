@@ -55,6 +55,25 @@ PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
 alias ls='ls -F --color=tty --show-control-chars'
 ```
 
++ .bashrc function
+Can color the gcc output by press 'm' to make
+```sh
+m(){
+    make ${@} 2>&1 | perl -wln -M'Term::ANSIColor' -e '
+    m/Building|gcc|g\+\+|\bCC\b|\bcc\b/ and print "\e[0;32m", "$_", "\e[0m"
+    or
+    m/Error/i and print "\e[0;91m", "$_", "\e[0m"
+    or
+    m/Warning/i and print "\e[0;93m", "$_", "\e[0m"
+    or
+    m/Linking|\.a\b/ and print "\e[0;36m", "$_", "\e[0m"
+    or
+    print; '
+}
+```
+
+![color gcc](https://imgur.com/zP4VTp9.png)
+
 + Disable cursor blink in ubuntu
 
 ```
@@ -100,4 +119,4 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
 ```
 
 + screenshot
-![](https://imgur.com/8aNemHB.png)
+![screenshot](https://imgur.com/8aNemHB.png)
