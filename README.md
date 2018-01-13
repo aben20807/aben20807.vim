@@ -70,6 +70,7 @@ m(){
     or
     print; '
 }
+export -f m
 ```
 
 ![color gcc](https://imgur.com/5oVwklq.png)
