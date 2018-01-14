@@ -119,6 +119,10 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
 --pad-header
 ```
 
++ good-looking GDB
+    + [cyrus-and/gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)
+    + Just put .gdbinit into home directory.
+
 + screenshot
 
 ![screenshot](https://imgur.com/8aNemHB.png)
