@@ -71,6 +71,7 @@ m(){
     print; '
 }
 export -f m
+alias make='m'
 ```
 
 ![color gcc](https://imgur.com/5oVwklq.png)
