@@ -1,6 +1,9 @@
 aben20807.vim
 ===
 
+## Environment
++ vim 8
+
 ## Installation
 step 1. Install [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 ```sh
@@ -8,7 +11,7 @@ $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Step 2. Download [.vimrc](https://github.com/aben20807/aben20807.vim/blob/master/.vimrc) or create empty .vimrc and copy paste content from link.
+Step 2. Download [.vimrc](https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc) or create empty .vimrc and copy paste content from link.
 
 Step 3. Open vim and execute following command to install plugin.
 
