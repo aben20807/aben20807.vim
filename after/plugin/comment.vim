@@ -1,16 +1,7 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
-" Filename: .comment.vim
-" Last Modified: 2017-08-02 10:35:34
+" Filename: comment.vim
+" Last Modified: 2018-01-24 13:31:28
 " Vim: enc=utf-8
-
-" Section: 記錄原始key map
-" Comment map
-" nmap <M-/> <ESC><S-^>i// <ESC>
-" imap <M-/> <ESC><S-^>i// <ESC><BS>i
-" vmap <M-/> <S-^><C-v><S-i>// <ESC>
-" nmap <M-.> <ESC><S-^><C-V>lld
-" imap <M-.> <ESC><S-^><C-V>lldi
-" vmap <M-.> <C-v><S-^><S-o><S-^>lld<ESC>
 
 " Function: CommentFormat() function
 " 接收註解格式, 請於.vim/after/ftplugin/ouo.vim設定
@@ -18,7 +9,7 @@
 "
 " Args:
 "   -format:註解格式, 例如cpp是// , python是# ,請以雙引號刮起
-function CommentFormat(format)
+function! CommentFormat(format)
     let s:format = a:format
 endfunction
 
@@ -28,7 +19,7 @@ endfunction
 "
 " Return:
 "   -result:裁減完成的子字串
-function s:subString(from, to)
+function! s:subString(from, to)
     let currentLine = getline(".")
     let i = a:from
     let result = ""
@@ -45,7 +36,7 @@ endfunction
 "
 " Return:
 "   -1代表前方有註解符號, 否則回傳0, -1代表沒有設定則不給註解
-function s:isComment()
+function! s:isComment()
     if !exists("s:format")
         redraw
         echohl WarningMsg
@@ -58,16 +49,8 @@ function s:isComment()
     let sub = s:subString(col(".")-1, col(".")-1+strlen(s:format))
     execute "normal 0".(s:nowcol)."lh"
     if  sub ==# s:format
-        " redraw
-        " echohl WarningMsg
-        "     echo "   ❖  有註解 ❖ "
-        " echohl NONE
         return 1
     else
-        " redraw
-        " echohl WarningMsg
-        "     echo "   ❖  無註解 ❖ "
-        " echohl NONE
         return 0
     endif
 endfunction
@@ -76,21 +59,22 @@ endfunction
 " Function: s:comment() function
 " i, n模式下的註解
 " 先判斷是否已經註解, 原無註解則加上註解, 否則移除註解
-function s:comment()
-    let s:nowcol = col(".")
+function! s:comment()
+    let b:curcol = col(".")
+    let b:curline = line(".")
     if s:isComment() ==# 1
         call s:commentDel()
-        execute "normal 0".(s:nowcol - strlen(s:format) > 0? (s:nowcol - strlen(s:format)): 0)."lh"
+        call cursor(b:curline, b:curcol - strlen(s:format))
     elseif s:isComment() ==# 0
         call s:commentAdd()
-        execute "normal 0".(s:nowcol + strlen(s:format))."lh"
+        call cursor(b:curline, b:curcol + strlen(s:format))
     endif
 endfunction
 
 
 " Function: s:commentAdd() function
 " i, n模式下的加入註解
-function s:commentAdd()
+function! s:commentAdd()
     execute "normal \<S-^>i".s:format."\<ESC>"
     redraw
     echohl WarningMsg
@@ -101,7 +85,7 @@ endfunction
 
 " Function: s:commentDel() function
 " i, n模式下的移除註解
-function s:commentDel()
+function! s:commentDel()
     execute "normal \<S-^>".strlen(s:format)."x"
     redraw
     echohl WarningMsg
@@ -113,10 +97,7 @@ endfunctio
 " Function: s:commentV() function
 " v模式下的註解, 可多行同時註解
 " 先判斷是否已經註解, 原無註解則加上註解, 否則移除註解
-function s:commentV()
-    " FIXME 游標無法回到註解前的位置
-    " FIXME 註解不註解只能以第一行當作判斷
-    " FIXME v-block模式會錯誤
+function! s:commentV()
     if s:isComment() ==# 1
         call s:commentVDel()
     elseif s:isComment() ==# 0
@@ -127,8 +108,15 @@ endfunction
 
 " Function: s:commentVAdd() function
 " v模式下的加入註解
-function s:commentVAdd()
-    execute "normal gv \<C-v>\<S-^>\<S-o>\<S-^>I".s:format."\<ESC>"
+function! s:commentVAdd()
+    let i = 0
+    let s:lines = line("'>") - line("'<") + 1
+    while i < s:lines
+        :call s:commentAdd()
+        execute "normal j"
+        let i+=1
+    endwhile
+    execute "normal k"
     redraw
     echohl WarningMsg
         echo "   ❖  加入註解 ❖ "
@@ -138,9 +126,17 @@ endfunction
 
 " Function: s:commentVDel() function
 " v模式下的移除註解
-function s:commentVDel()
-    " FIXME 遇到非註解開頭的仍會刪掉
-    execute "normal gv \<C-v>\<S-^>\<S-o>\<S-^>".(strlen(s:format)-1)."lx\<ESC>"
+function! s:commentVDel()
+    let i = 0
+    let s:lines = line("'>") - line("'<") + 1
+    while i < s:lines
+        if s:isComment() ==# 1
+            :call s:commentDel()
+        endif
+        execute "normal j"
+        let i+=1
+    endwhile
+    execute "normal k"
     redraw
     echohl WarningMsg
         echo "   ❖  移除註解 ❖ "
