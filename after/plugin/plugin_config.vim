@@ -55,7 +55,6 @@ let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 let NERDTreeWinSize=25
 
@@ -162,3 +161,4 @@ let Tlist_Close_On_Select = 1
 let Tlist_Enable_Fold_Column = 0
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_WinWidth = 25
+nmap <C-t> :TlistToggle<CR>

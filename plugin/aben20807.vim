@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2017-10-27 14:50:26
+" Last Modified: 2018-01-24 19:09:24
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -39,9 +39,9 @@ autocmd BufWinLeave * mkview
 
 " return to last edit position when opening files
 autocmd BufReadPost *
-\ if line("'\"") > 0 && line("'\"") <= line('$') |
-\   exe "normal! g`\"" |
-\ endif
+            \ if line("'\"") > 0 && line("'\"") <= line('$') |
+            \   exe "normal! g`\"" |
+            \ endif
 
 " keep 3 lines below and above the cursor
 set scrolloff=3
@@ -221,7 +221,7 @@ function! CompileAndRun()
         else
             redraw
             echohl WarningMsg
-                echo strftime("   ❖  不支援  ❖ ")
+            echo strftime("   ❖  不支援  ❖ ")
             echohl NONE
         endif
     endif
@@ -264,8 +264,8 @@ function! TitleDet()
     while n < 5
         let line = getline(n)
         if line =~ '^\#\s*\S*Last\sModified:\S*.*$' ||
-          \line =~ '^\/\/\s*\S*Last\sModified:\S*.*$' ||
-          \line =~ '^\"\s*\S*Last\sModified:\S*.*$'
+                    \line =~ '^\/\/\s*\S*Last\sModified:\S*.*$' ||
+                    \line =~ '^\"\s*\S*Last\sModified:\S*.*$'
             call UpdateTitle()
             return
         endif
@@ -273,3 +273,25 @@ function! TitleDet()
     endwhile
     call AddTitle()
 endfunction
+
+" Ref: https://github.com/scrooloose/nerdtree/issues/21#issue-151332
+function! NERDTreeQuit()
+    redir => buffersoutput
+    silent buffers
+    redir END
+    "                     1BufNo  2Mods.     3File           4LineNo
+    let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+    let windowfound = 0
+    for bline in split(buffersoutput, "\n")
+        let m = matchlist(bline, pattern)
+        if (len(m) > 0)
+            if (m[2] =~ '..a..')
+                let windowfound = 1
+            endif
+        endif
+    endfor
+    if (!windowfound)
+        quitall
+    endif
+endfunction
+autocmd WinEnter * call NERDTreeQuit()
