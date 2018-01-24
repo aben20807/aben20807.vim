@@ -1,11 +1,11 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
-" Filename: .surround.vim
-" Last Modified: 2017-07-27 11:30:49
+" Filename: surround.vim
+" Last Modified: 2018-01-24 18:25:01
 " Vim: enc=utf-8
 
 let s:patlist=["'", '"', '(', '[', '{', '<']
 
-function s:mapBrackets(pat)
+function! s:mapBrackets(pat)
     if a:pat ==# "'"
         return "'"
     elseif a:pat ==# '"'
@@ -22,7 +22,7 @@ function s:mapBrackets(pat)
 endfunction
 
 
-function s:isBrackets(pat)
+function! s:isBrackets(pat)
     for c in s:patlist
         if a:pat ==# c
             return 1
@@ -36,7 +36,7 @@ function s:isBrackets(pat)
 endfunction
 
 
-function s:isInSurround(pat)
+function! s:isInSurround(pat)
     let nofound = 0
     let s:nowcol = col(".")
     execute "normal F".a:pat
@@ -63,19 +63,19 @@ function s:isInSurround(pat)
 endfunction
 
 
-function s:saveMap(pat)
+function! s:saveMap(pat)
     let s:save=maparg(a:pat, 'i')
     " exec 'iunmap ' . a:pat if there is no map it will be error
     execute 'inoremap ' . a:pat . ' ' . a:pat
 endfunction
 
 
-function s:restoreMap(pat)
+function! s:restoreMap(pat)
     execute 'inoremap ' . a:pat . ' ' . s:save
 endfunction
 
 
-function s:surround(num, pat)
+function! s:surround(num, pat)
     " check is can delete
     if s:isBrackets(a:pat) ==# 0
         return
@@ -94,13 +94,13 @@ function s:surround(num, pat)
 endfunction
 
 
-function s:surroundNadd(num)
+function! s:surroundNadd(num)
     let pat = nr2char(getchar())
     call s:surround(a:num, pat)
 endfunction
 
 
-function s:surroundVadd(vmode)
+function! s:surroundVadd(vmode)
     " Ref: https://stackoverflow.com/questions/29091614/vim-determine-if-function-called-from-visual-block-mode
     " FIXME v 模式多行最後會多一個字元
     " FIXME V 模式往上選會把上面當成尾端
@@ -132,7 +132,7 @@ function s:surroundVadd(vmode)
 endfunction
 
 
-function s:surroundNdel()
+function! s:surroundNdel()
     let pat = nr2char(getchar())
     " check is can be deleted
     if s:isBrackets(pat) ==# 0
@@ -153,7 +153,7 @@ function s:surroundNdel()
 endfunction
 
 
-function s:surroundNrep()
+function! s:surroundNrep()
     let pat1 = nr2char(getchar())
     let pat2 = nr2char(getchar())
     " check is can be deleted
@@ -185,7 +185,6 @@ vmap <leader>s <Plug>SurroundVadd
 
 nnoremap <silent> <Plug>SurroundNdel :<C-u>call <SID>surroundNdel()<CR>
 nmap <leader>d <Plug>SurroundNdel
-
 
 nnoremap <silent> <Plug>SurroundNrep :<C-u>call <SID>surroundNrep()<CR>
 nmap <leader>f <Plug>SurroundNrep

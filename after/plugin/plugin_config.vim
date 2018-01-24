@@ -1,12 +1,10 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2017-10-27 20:16:49
+" Last Modified: 2018-01-24 17:52:24
 " Vim: enc=utf-8
 
 " Config of all plugin
 " --- vim-airline/vim-airline ---
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 set laststatus=2
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
@@ -45,15 +43,14 @@ let g:airline_symbols.readonly = 'R'
 let g:airline_symbols.notexists = '?'
 "
 " airline git symbol
-" Plugin 'tpope/vim-fugitive'
+"---tpope/vim-fugitive---"
 
 " --- scrooloose/nerdtree ---
-" Plugin 'scrooloose/nerdtree'
 map <C-n> :NERDTreeToggle<CR>
 map <leader>ee :NERDTreeToggle<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.exe', '\.o']
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.exe', '\.o', '\.orig']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
@@ -70,18 +67,15 @@ endfunction
 autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 
 " --- terryma/vim-multiple-cursors ---
-" Plugin 'terryma/vim-multiple-cursors'
 "http://www.wklken.me/posts/2015/06/07/vim-plugin-multiplecursors.html
 
 " --- Yggdroot/indentLine ---
-" Plugin 'Yggdroot/indentLine'
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┊'
-let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
+let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*', '__Tag_List__']
 nnoremap <F3> :IndentLinesToggle<CR>
 
 " --- w0rp/ale ---
-" Plugin 'w0rp/ale'
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \   'javascript': ['eslint'],
@@ -114,8 +108,6 @@ autocmd VimEnter,Colorscheme * :hi ALEWarning       cterm=NONE ctermfg=251 cterm
 " Plugin 'rust-lang/rust.vim'
 
 " --- maralla/completor.vim ---
-" Plugin 'maralla/completor.vim'
-" Plugin 'aben20807/completor.vim'
 let g:completor_completion_delay=10
 let g:completor_auto_close_doc=0
 let g:completor_auto_trigger=0
@@ -140,7 +132,6 @@ inoremap <expr> <TAB> pumvisible() ?"\<C-n>": "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ?"\<C-p>": "\<S-TAB>"
 
 " --- octol/vim-cpp-enhanced-highlight ---
-" Plugin 'octol/vim-cpp-enhanced-highlight'
 let g:cpp_class_scope_highlight=1
 let g:cpp_member_variable_highlight=1
 let g:cpp_class_decl_highlight=1
@@ -148,7 +139,6 @@ let g:cpp_experimental_simple_template_highlight=1
 let c_no_curly_error=1
 
 " --- iamcco/markdown-preview.vim ---
-" Plugin 'iamcco/markdown-preview.vim'
 if !exists('g:browser')
     let g:browser = 0
 endif
@@ -163,3 +153,12 @@ let g:mkdp_auto_start = 0
 "--- pseewald/vim-anyfold ---"
 let anyfold_activate=1
 set foldlevel=30
+
+"---vim-scripts/taglist.vim---"
+autocmd FileType taglist set norelativenumber
+autocmd FileType taglist set nonumber
+let Tlist_Auto_Highlight_Tag = 0
+let Tlist_Close_On_Select = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_WinWidth = 25

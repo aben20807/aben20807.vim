@@ -30,6 +30,7 @@ Plug 'maralla/completor.vim'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'pseewald/vim-anyfold'
+Plug 'vim-scripts/taglist.vim', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
 Plug 'aben20807/aben20807.vim'
 
 call plug#end()
