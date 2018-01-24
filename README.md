@@ -3,6 +3,7 @@ aben20807.vim
 
 ## Environment
 + vim 8
++ ctags `sudo apt-get install ctags`
 
 ## Installation
 step 1. Install [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
