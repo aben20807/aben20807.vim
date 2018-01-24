@@ -22,7 +22,7 @@ Step 3. Open vim and execute following command to install plugin.
 Step 4. Move airline theme.
 
 ```sh
-$ cp .vim/bundle/aben20807.vim/airline_theme/ouo.vim .vim/bundle/vim-airline-themes/autoload/airline/themes/
+$ cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim .vim/plugged/vim-airline-themes/autoload/airline/themes/
 ```
 
 ## Function

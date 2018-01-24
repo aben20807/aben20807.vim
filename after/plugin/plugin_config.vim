@@ -8,7 +8,6 @@
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 set laststatus=2
-" let g:airline_theme='ouo'
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 " set left separator

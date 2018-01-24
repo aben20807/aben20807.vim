@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
 Plug 'vim-airline/vim-airline'
+let g:airline_theme='ouo'
 let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
