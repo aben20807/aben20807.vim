@@ -2,10 +2,10 @@ aben20807.vim
 ===
 
 ## Installation
-Step 1. Install [Vundle](https://github.com/VundleVim/Vundle.vim).
-
+step 1. Install [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 ```sh
-$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Step 2. Download [.vimrc](https://github.com/aben20807/aben20807.vim/blob/master/.vimrc) or create empty .vimrc and copy paste content from link.
@@ -13,7 +13,7 @@ Step 2. Download [.vimrc](https://github.com/aben20807/aben20807.vim/blob/master
 Step 3. Open vim and execute following command to install plugin.
 
 ```
-:PluginInstall
+:PlugInstall
 ```
 
 Step 4. Move airline theme.

@@ -55,9 +55,6 @@ set mousehide
 " Allow the cursor to move just past the end of the line
 set virtualedit=onemore
 
-" skip VI, must
-set nocompatible
-
 " let backspace can delete
 set backspace=2
 

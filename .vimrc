@@ -8,29 +8,28 @@ set nocompatible            " be iMproved, required
 filetype off                " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
+Plug 'VundleVim/Vundle.vim'
+Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'terryma/vim-multiple-cursors'
 let g:multi_cursor_use_default_mapping=1
 let g:multi_cursor_next_key='<C-o>' "選中一個
 let g:multi_cursor_prev_key='<C-p>' "放棄一個，回到
 let g:multi_cursor_skip_key='<C-x>' "跳過
 let g:multi_cursor_quit_key='<Esc>' "退出
-Plugin 'Yggdroot/indentLine'
-Plugin 'w0rp/ale'
-Plugin 'rust-lang/rust.vim'
-Plugin 'maralla/completor.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'pseewald/vim-anyfold'
-Plugin 'aben20807/aben20807.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'w0rp/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'maralla/completor.vim'
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+Plug 'pseewald/vim-anyfold'
+Plug 'aben20807/aben20807.vim'
 
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
