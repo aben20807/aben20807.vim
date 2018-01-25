@@ -26,6 +26,9 @@ Step 4. Move airline theme.
 $ cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim .vim/plugged/vim-airline-themes/autoload/airline/themes/
 ```
 
+## Usage
++ see [cheatsheet](https://github.com/aben20807/aben20807.vim/blob/master/cheatsheet.md)
+
 ## Function
 + Browser setting
 
