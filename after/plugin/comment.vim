@@ -1,7 +1,32 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: comment.vim
-" Last Modified: 2018-01-24 13:31:28
+" Last Modified: 2018-01-25 22:11:40
 " Vim: enc=utf-8
+
+augroup comment
+    autocmd BufEnter,BufRead,BufNewFile * :call s:SetUpFormat(&filetype)
+augroup END
+
+let s:commentMap = {
+            \ 'c':      '// '   ,
+            \ 'cpp':    '// '   ,
+            \ 'make':   '# '    ,
+            \ 'python': '# '    ,
+            \ 'rust':   '// '   ,
+            \ 'sh':     '# '    ,
+            \ 'vim':    '" '
+            \ }
+
+" Function: s:SetUpFormat(filetype) function
+" 搜尋 commentMap 中是否有註解格式
+" Args:
+"   -filetype: 檔案類型
+function! s:SetUpFormat(filetype)
+    let ft = a:filetype
+    if has_key(s:commentMap, ft)
+        let s:format = s:commentMap[ft]
+    endif
+endfunction
 
 " Function: CommentFormat() function
 " 接收註解格式, 請於.vim/after/ftplugin/ouo.vim設定
@@ -10,7 +35,7 @@
 " Args:
 "   -format:註解格式, 例如cpp是// , python是# ,請以雙引號刮起
 function! CommentFormat(format)
-    let s:format = a:format
+    " let s:format = a:format
 endfunction
 
 
@@ -40,7 +65,7 @@ function! s:isComment()
     if !exists("s:format")
         redraw
         echohl WarningMsg
-            echo "   ❖  無設定註解格式 ❖ "
+        echo "   ❖  無設定註解格式 ❖ "
         echohl NONE
         return -1
     endif
@@ -78,7 +103,7 @@ function! s:commentAdd()
     execute "normal \<S-^>i".s:format."\<ESC>"
     redraw
     echohl WarningMsg
-        echo "   ❖  加入註解 ❖ "
+    echo "   ❖  加入註解 ❖ "
     echohl NONE
 endfunction
 
@@ -89,7 +114,7 @@ function! s:commentDel()
     execute "normal \<S-^>".strlen(s:format)."x"
     redraw
     echohl WarningMsg
-        echo "   ❖  移除註解 ❖ "
+    echo "   ❖  移除註解 ❖ "
     echohl NONE
 endfunctio
 
@@ -119,7 +144,7 @@ function! s:commentVAdd()
     execute "normal k"
     redraw
     echohl WarningMsg
-        echo "   ❖  加入註解 ❖ "
+    echo "   ❖  加入註解 ❖ "
     echohl NONE
 endfunction
 
@@ -139,7 +164,7 @@ function! s:commentVDel()
     execute "normal k"
     redraw
     echohl WarningMsg
-        echo "   ❖  移除註解 ❖ "
+    echo "   ❖  移除註解 ❖ "
     echohl NONE
 endfunctio
 
