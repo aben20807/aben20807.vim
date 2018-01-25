@@ -1,10 +1,7 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: python.vim
-" Last Modified: 2017-07-29 14:15:23
+" Last Modified: 2018-01-25 22:15:28
 " Vim: enc=utf-8
-
-" Comment
-call CommentFormat("# ")
 
 " Title information
 function! AddTitle()

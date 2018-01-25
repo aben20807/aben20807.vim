@@ -1,10 +1,7 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: vim.vim
-" Last Modified: 2017-07-29 14:21:11
+" Last Modified: 2018-01-25 22:20:05
 " Vim: enc=utf-8
-
-" Comment
-call CommentFormat("\" ")
 
 " Abbreviations
 :iab <buffer> <expr> function CodeAbbr("function", "function

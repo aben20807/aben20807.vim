@@ -1,10 +1,7 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: c.vim
-" Last Modified: 2017-07-28 10:29:42
+" Last Modified: 2018-01-25 22:15:00
 " Vim: enc=utf-8
-
-" Comment
-call CommentFormat("// ")
 
 " Abbreviations
 :iab #i #include <><LEFT><C-R>=Eatchar('\m\s\<bar>\r')<CR>

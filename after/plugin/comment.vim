@@ -28,16 +28,6 @@ function! s:SetUpFormat(filetype)
     endif
 endfunction
 
-" Function: CommentFormat() function
-" 接收註解格式, 請於.vim/after/ftplugin/ouo.vim設定
-" 例如在.vim/after/ftplugin/cpp.vim中打call CommentFormat("// ")
-"
-" Args:
-"   -format:註解格式, 例如cpp是// , python是# ,請以雙引號刮起
-function! CommentFormat(format)
-    " let s:format = a:format
-endfunction
-
 
 " Function: s:subString() function
 " 用於提出整行的子字串, 長度根據註解格式長度

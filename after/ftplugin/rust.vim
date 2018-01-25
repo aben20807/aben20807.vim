@@ -1,10 +1,7 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: rust.vim
-" Last Modified: 2017-08-05 22:48:29
+" Last Modified: 2018-01-25 22:15:43
 " Vim: enc=utf-8
-
-" Comment
-call CommentFormat("// ")
 
 function! AddTitle()
     call append(0,"// Author: Huang Po-Hsuan <aben20807@gmail.com>")
