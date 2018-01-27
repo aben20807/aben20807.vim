@@ -12,7 +12,11 @@ $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Step 2. Download [.vimrc](https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc) or create empty .vimrc and copy paste content from link.
+Step 2. Download [.vimrc](https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc).
+```sh
+curl -fLo ~/.vimrc \
+    https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc
+```
 
 Step 3. Open vim and execute following command to install plugin.
 
