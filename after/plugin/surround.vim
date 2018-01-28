@@ -177,7 +177,7 @@ function! s:surroundNrep()
 endfunction
 
 
-command -nargs=+ S call s:surround(<f-args>)
+command! -nargs=+ S call s:surround(<f-args>)
 nnoremap <silent> <Plug>SurroundNadd :<C-u>call <SID>surroundNadd(v:count1)<CR>
 vnoremap <silent> <Plug>SurroundVadd :<C-u>call <SID>surroundVadd(visualmode())<CR>
 nmap <leader>s <Plug>SurroundNadd
