@@ -235,7 +235,7 @@ map <F4> :call TitleDet()<CR>
 " autocmd BufWritePre,VimLeavePre * call TitleDet()
 function! AddTitle()
 endfunction
-function UpdateTitle()
+function! UpdateTitle()
     if &filetype == 'python'
         normal m'
         execute '/# *Last Modified:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M:%S")@'
