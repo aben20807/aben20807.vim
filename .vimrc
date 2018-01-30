@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2017-10-27 21:54:33
+" Last Modified: 2018-01-30 12:53:14
 " Vim: enc=utf-8
 
 let g:browser = 0           " 0 for chrome in cygwin, 1 for firefox in ubuntu
@@ -32,6 +32,7 @@ Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'pseewald/vim-anyfold'
 Plug 'vim-scripts/taglist.vim', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
 Plug 'aben20807/aben20807.vim'
+Plug 'aben20807/vim-commenter'
 
 call plug#end()
 filetype plugin indent on    " required
