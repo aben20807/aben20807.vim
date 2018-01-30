@@ -16,6 +16,7 @@
 ## Key mapping
 + t: N mode 游標下加一空行
 + T: N mode 游標上加一空行
++ \<C-a\>: ggVG (全選)
 + \<C-n\>: NERDTree
 + \<C-t\>: taglist
 + \<M-a\>: ALEToggle

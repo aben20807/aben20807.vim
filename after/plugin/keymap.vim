@@ -23,6 +23,9 @@ nnoremap <silent> <C-h> :bp!<CR>
 nnoremap <silent> <C-k> :bp!<CR>
 nnoremap <silent> <C-j> :bn!<CR>
 
+" map ctrl-a to select whole text
+nnoremap <C-a> ggVG
+
 " buffer map
 for i in range(1, 9)
     exec 'noremap <Leader>'.i.' :'.i.'b!<CR>'
