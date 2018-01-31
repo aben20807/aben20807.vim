@@ -1,8 +1,8 @@
-## Comment
+## [Comment](https://github.com/aben20807/vim-commenter)
 + \<M-/\>: 如果未註解就加上註解, 反之解除註解
 + 支援一次選取多行 (v mode)
 
-## Sourround
+## [Sourround](https://github.com/aben20807/vim-surrounder)
 + pat = ["'", '"', '(', '[', '{', '<']
 + \<leader\>s + pat: 左右加上 pat, 會自動對應, 支援v mode, 先按數字
 + \<leader\>d + pat: 左右刪除 pat
