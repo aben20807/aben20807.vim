@@ -33,6 +33,7 @@ Plug 'pseewald/vim-anyfold'
 Plug 'vim-scripts/taglist.vim', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
 Plug 'aben20807/aben20807.vim'
 Plug 'aben20807/vim-commenter'
+Plug 'aben20807/vim-surrounder'
 
 call plug#end()
 filetype plugin indent on    " required
