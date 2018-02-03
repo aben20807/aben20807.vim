@@ -31,7 +31,7 @@ $ cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim .vim/plugged/vim-airline-t
 ```
 
 ## Usage
-+ see [cheatsheet](https://github.com/aben20807/aben20807.vim/blob/master/cheatsheet.md)
++ see [CHEATSHEET](https://github.com/aben20807/aben20807.vim/blob/master/CHEATSHEET.md)
 
 ## Function
 + Browser setting
