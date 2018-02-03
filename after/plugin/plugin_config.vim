@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-01-24 17:52:24
+" Last Modified: 2018-02-03 14:08:48
 " Vim: enc=utf-8
 
 " Config of all plugin
@@ -153,12 +153,42 @@ let g:mkdp_auto_start = 0
 let anyfold_activate=1
 set foldlevel=30
 
-"---vim-scripts/taglist.vim---"
-autocmd FileType taglist set norelativenumber
-autocmd FileType taglist set nonumber
-let Tlist_Auto_Highlight_Tag = 0
-let Tlist_Close_On_Select = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_WinWidth = 25
-nmap <C-t> :TlistToggle<CR>
+"---majutsushi/tagbar---"
+let g:tagbar_autofocus = 1
+let g:tagbar_indent = 1
+let g:tagbar_sort = 0
+let g:tagbar_map_nexttag = "<C-o>"
+" $ ctags --list-kinds=c
+let g:tagbar_type_c= {
+            \ 'ctagstype' : 'c',
+            \ 'kinds'     : [
+                \ 'd:macros:1:0',
+                \ 'p:prototypes:1:0',
+                \ 'f:functions',
+                \ 'g:enums',
+                \ 'e:enumerators:0:0',
+                \ 't:typedefs:0:0',
+                \ 'n:namespaces',
+                \ 'c:classes',
+                \ 's:structs',
+                \ 'u:unions',
+                \ 'm:members:0:0',
+                \ 'v:variables:1:0'
+            \ ]}
+let g:tagbar_type_cpp= {
+            \ 'ctagstype' : 'c++',
+            \ 'kinds'     : [
+                \ 'd:macros:1:0',
+                \ 'p:prototypes:1:0',
+                \ 'f:functions',
+                \ 'g:enums',
+                \ 'e:enumerators:0:0',
+                \ 't:typedefs:0:0',
+                \ 'n:namespaces',
+                \ 'c:classes',
+                \ 's:structs',
+                \ 'u:unions',
+                \ 'm:members:0:0',
+                \ 'v:variables:1:0'
+            \ ]}
+nnoremap <C-t> :TagbarToggle<CR>
