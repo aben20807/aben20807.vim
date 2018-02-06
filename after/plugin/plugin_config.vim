@@ -72,6 +72,7 @@ autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┊'
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*', '__Tag_List__']
+let g:indentLine_fileTypeExclude = ['help']
 nnoremap <F3> :IndentLinesToggle<CR>
 
 " --- w0rp/ale ---
