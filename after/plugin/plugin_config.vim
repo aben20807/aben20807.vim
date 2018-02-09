@@ -72,7 +72,7 @@ autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┊'
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*', '__Tag_List__']
-let g:indentLine_fileTypeExclude = ['help']
+let g:indentLine_fileTypeExclude = ['help', 'text']
 nnoremap <F3> :IndentLinesToggle<CR>
 
 " --- w0rp/ale ---
@@ -90,8 +90,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_enter = 1
 let g:ale_set_signs = 1
-let g:ale_sign_error = '◈'
-let g:ale_sign_warning = '◈'
+let g:ale_sign_error = '◉' " ◈'
+let g:ale_sign_warning = '◉' " ◈'
 " check only after savind
 let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_text_changed = 'always'
