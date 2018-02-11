@@ -210,7 +210,7 @@ function! CompileAndRun()
         elseif &filetype == 'c'
             execute "!gcc -std=c11 % -o /tmp/a.out && time /tmp/a.out"
         elseif &filetype == 'cpp'
-            execute "!g++ -std=c++11 % -o /tmp/a.out && time /tmp/a.out"
+            execute "!g++ -lm -lcrypt -O2 -std=c++11 -pipe -DONLINE_JUDGE % -o /tmp/a.out && time /tmp/a.out"
         elseif &filetype == 'java'
             execute "!javac -encoding utf-8 %"
             execute "!time java %<"
