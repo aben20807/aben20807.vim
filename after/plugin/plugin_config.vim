@@ -79,8 +79,8 @@ nnoremap <F3> :IndentLinesToggle<CR>
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \   'javascript': ['eslint'],
-            \   'c': ['clang', 'gcc'],
-            \   'cpp': ['clang', 'gcc'],
+            \   'c': ['gcc'],
+            \   'cpp': ['g++'],
             \   'python': ['pylint'],
             \   'vim': ['vint'],
             \   'rust': ['rustc', 'cargo']
@@ -96,6 +96,9 @@ let g:ale_sign_warning = '◉' " ◈'
 let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_delay = 50
+" compiler flag
+" let g:ale_c_gcc_options='-std=c11 -Wall'
+" let g:ale_cpp_gcc_options='-std=c++14 -Wall'
 nnoremap <M-a> :ALEToggle<CR>
 nmap <M-w> <Plug>(ale_previous_wrap)
 nmap <M-e> <Plug>(ale_next_wrap)
