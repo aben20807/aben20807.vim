@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-02-03 14:09:49
+" Last Modified: 2018-03-04 23:22:44
 " Vim: enc=utf-8
 
 let g:browser = 0           " 0 for chrome in cygwin, 1 for firefox in ubuntu
@@ -30,11 +30,17 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'pseewald/vim-anyfold'
 Plug 'majutsushi/tagbar', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+command! FALL call fzf#run({'source': 'find ~/ -type f', 'sink':  'edit'})
 Plug 'aben20807/aben20807.vim'
 Plug 'aben20807/vim-commenter'
 let g:commenter_custom_map = {'html':{ 'll': '', 'bl': '<!-- ', 'br': ' -->' },
                              \'tmux':{ 'll': '# '}}
 Plug 'aben20807/vim-surrounder'
+Plug 'aben20807/vim-runner'
+let g:runner_is_with_ale = 1
+let g:runner_is_with_md = 1
 
 call plug#end()
 filetype plugin indent on    " required

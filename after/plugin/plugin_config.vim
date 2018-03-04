@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-02-03 14:08:48
+" Last Modified: 2018-03-04 23:23:03
 " Vim: enc=utf-8
 
 " Config of all plugin
