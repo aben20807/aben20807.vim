@@ -7,12 +7,14 @@ aben20807.vim
 
 ## Installation
 step 1. Install [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+
 ```sh
 $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Step 2. Download [.vimrc](https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc).
+
 ```sh
 curl -fLo ~/.vimrc \
     https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc
@@ -40,12 +42,18 @@ $ cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim .vim/plugged/vim-airline-t
 let g:browser = 0 " 0 for chrome in cygwin, 1 for firefox in ubuntu
 ```
 
-+ ale c compiler flag
++ ale compiler flag
+
 ```vim
 let g:ale_c_gcc_options='-std=gnu99 -Wall'
+let g:ale_cpp_gcc_options='-Wall -lm -lcrypt -O2 -std=c++11 -pipe -DONLINE_JUDGE'
 ```
 
++ if ale not working and your gcc (or g++) output messages is not english
+    + solution is in [107.03.02 解決 ale 的 gcc 不顯示錯誤 | 把 gcc 輸出改成英文](https://aben20807.blogspot.tw/2018/03/1070302-ale-gcc-gcc.html#more)
+
 + <F5> to compile and run
+
 ```vim
 elseif &filetype == 'c'
     " execute "!cd .. && ./test.sh"
@@ -68,6 +76,7 @@ alias ls='ls -F --color=tty --show-control-chars'
 
 + .bashrc function
 Can color the gcc output by press 'm' to make
+
 ```sh
 m(){
     make ${@} 2>&1 | perl -wln -M'Term::ANSIColor' -e '
@@ -97,6 +106,7 @@ Goto `/apps/gnome-terminal/profiles/Default`
 Find `cursor_blink_mode` and change its value to `off`.
 or
 [Try (in a terminal):](https://askubuntu.com/a/311905)
+
 ```
 $ gsettings set org.gnome.desktop.interface cursor-blink false
 ```
@@ -122,6 +132,7 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
 ```
 
 + .astylerc
+
 ```
 --style=linux
 --indent=tab

@@ -180,54 +180,6 @@ function! RemoveTrailingWhitespace()
 endfunction
 autocmd BufWritePre * call RemoveTrailingWhitespace()
 
-" display date, compile and run
-map <F5> :call CompileAndRun()<CR>
-" save -> close ALE -> print date -> [execute] run -> open ALE
-function! CompileAndRun()
-    " save only when changed
-    execute "up"
-    execute "ALEDisable"
-    if &filetype == 'markdown'
-        " markdown preview
-        try
-            " Stop before starting and handle exception
-            execute "MarkdownPreviewStop"
-        catch /^Vim:E492:/
-            execute "MarkdownPreview"
-        endtry
-    else
-        " echo date time
-        silent execute "!echo"
-        silent execute "!echo -e '\033[31m ╔══════════════════════════════╗' "
-        silent execute "!echo -n ' ║ '"
-        silent execute "!echo -n `date`"
-        silent execute "!echo    ' ║ '"
-        silent execute "!echo -e '\033[31m ╚══════════════════════════════╝' \033[37m"
-        " detect file type
-        if &filetype == 'rust'
-            " execute "!rustc % && time ./%< && rm %<"
-            execute "!time RUST_BACKTRACE=1 cargo run"
-        elseif &filetype == 'c'
-            execute "!gcc -std=c11 % -o /tmp/a.out && time /tmp/a.out"
-        elseif &filetype == 'cpp'
-            execute "!g++ -lm -lcrypt -O2 -std=c++11 -pipe -DONLINE_JUDGE % -o /tmp/a.out && time /tmp/a.out"
-        elseif &filetype == 'java'
-            execute "!javac -encoding utf-8 %"
-            execute "!time java %<"
-        elseif &filetype == 'sh'
-            :!%
-        elseif &filetype == 'python'
-            execute "!time python3 %"
-        else
-            redraw
-            echohl WarningMsg
-            echo strftime("   ❖  不支援  ❖ ")
-            echohl NONE
-        endif
-    endif
-    execute "ALEEnable"
-endfunction
-
 " add author information
 " Ref: http://www.gegugu.com/2016/02/11/17175.html
 " add or update
