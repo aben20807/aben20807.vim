@@ -1,7 +1,7 @@
 " Vim color file
 " Maintainer:   Huang Po-Hsuan <aben20807@gmail.com>
-" Last Change:  $Date: 2017/08/05 00:03:11 $
-" URL:
+" Last Change:  $Date: 2018/07/10 15:41:31 $
+" URL: https://github.com/aben20807/aben20807.vim/blob/master/colors/ouo.vim
 " Version:  $Id: ouo.vim,v 1.0 fugalh Exp $
 " modified from desert
 "
@@ -16,58 +16,10 @@ if version > 580
     " complaining
     hi clear
     if exists("syntax_on")
-    syntax reset
+        syntax reset
     endif
 endif
 let g:colors_name="ouo"
-
-hi Normal   guifg=White guibg=grey20
-
-" highlight groups
-hi Cursor   guibg=indianred guifg=khaki
-"hi CursorIM
-"hi Directory
-"hi DiffAdd
-"hi DiffChange
-"hi DiffDelete
-"hi DiffText
-"hi ErrorMsg
-hi VertSplit    guibg=#c2bfa5 guifg=grey50 gui=none
-hi Folded   guibg=grey30 guifg=gold
-hi FoldColumn   guibg=grey30 guifg=tan
-hi IncSearch    guifg=slategrey guibg=khaki
-"hi LineNr  guifg=#666666 guibg=#666666
-hi ModeMsg  guifg=goldenrod
-hi MoreMsg  guifg=SeaGreen
-hi NonText  guifg=LightBlue guibg=grey30
-hi Question guifg=springgreen
-hi Search   guibg=grey30 guifg=#dfffdf
-hi SpecialKey   guifg=yellowgreen
-hi StatusLine   guibg=#c2bfa5 guifg=black gui=none
-hi StatusLineNC guibg=#c2bfa5 guifg=grey50 gui=none
-hi Title    guifg=indianred
-hi Visual   gui=none guifg=khaki guibg=olivedrab
-"hi VisualNOS gui=none guifg=khaki guibg=olivedrab
-
-hi WarningMsg   guifg=salmon
-"hi WildMenu
-"hi Menu
-"hi Scrollbar
-"hi Tooltip
-hi MatchParen guibg=grey30 guifg=#dfffdf
-
-" syntax highlighting groups
-hi Comment  guifg=SkyBlue
-hi Constant guifg=#ffa0a0
-hi Identifier   guifg=palegreen
-hi Statement    guifg=khaki
-hi PreProc  guifg=indianred
-hi Type     guifg=darkkhaki
-hi Special  guifg=navajowhite
-"hi Underlined
-hi Ignore   guifg=grey40
-"hi Error
-hi Todo     guifg=orangered guibg=yellow2
 
 " color terminal definitions
 if &t_Co > 255
@@ -166,8 +118,4 @@ if &t_Co > 255
     hi VisualNOS        cterm=bold,underline
     hi WarningMsg       cterm=bold ctermfg=1
     hi WildMenu         ctermfg=0 ctermbg=11
-
-    "":let c_comment_strings = 1
-    ""hi c_comment_strings guisp=#FFFFFF
 endif
-"vim: sw=4
