@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-07-22 18:16:53
+" Last Modified: 2018-07-22 18:39:39
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -235,6 +235,7 @@ function! TitleDet()
 endfunction
 
 " I haven't found how to hide this function (yet)
+" Ref: https://stackoverflow.com/a/290723/6734174
 function! RestoreRegister()
   let @" = s:restore_reg
   return ''
