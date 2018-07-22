@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-07-22 15:48:29
+" Last Modified: 2018-07-22 18:16:53
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -233,3 +233,17 @@ function! TitleDet()
     endwhile
     call AddTitle()
 endfunction
+
+" I haven't found how to hide this function (yet)
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+
+function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+endfunction
+
+" NB: this supports "rp that replaces the selection by the contents of @r
+vnoremap <silent> <expr> p <sid>Repl()
