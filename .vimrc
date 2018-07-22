@@ -51,7 +51,7 @@ Plug 'aben20807/vim-runner'
 let g:runner_is_with_ale = 1
 let g:runner_is_with_md = 1
 let g:runner_auto_remove_tmp = 1
-let g:runner_cpp_compile_options = "-std=c++14 -Wall -lm -O2 -pipe"
+" let g:runner_cpp_compile_options = "-std=c++14 -Wall -lm -O2 -pipe"
 " let g:runner_cpp_run_options = "< test.in"
 " let g:runner_cpp_run_options = "< test.in > test.out"
 
