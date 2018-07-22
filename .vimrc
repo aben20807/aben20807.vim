@@ -1,7 +1,18 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-07-22 10:08:17
+" Last Modified: 2018-07-22 10:26:23
 " Vim: enc=utf-8
+
+if exists("g:has_loaded_aben20807")
+    finish
+endif
+
+if v:version < 800
+    echoerr "These settings and plugins require vim >= 8."
+    finish
+endif
+
+let g:has_loaded_aben20807 = 1
 
 let g:browser = 0           " 0 for chrome in cygwin, 1 for firefox in ubuntu
 set nocompatible            " be iMproved, required
