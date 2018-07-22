@@ -5,7 +5,7 @@
 " Config of all plugin
 
 " --- vim-airline/vim-airline ---
-set laststatus = 2
+set laststatus=2
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 " set left separator
@@ -158,7 +158,7 @@ let g:mkdp_auto_start = 0
 
 " --- pseewald/vim-anyfold ---
 let anyfold_activate = 1
-set foldlevel = 30
+set foldlevel=30
 
 " --- majutsushi/tagbar ---
 let g:tagbar_autofocus = 1
