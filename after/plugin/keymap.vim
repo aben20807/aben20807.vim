@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
-" Filename: .keymap.vim
-" Last Modified: 2017-07-27 09:17:35
+" Filename: keymap.vim
+" Last Modified: 2018-07-22 10:35:17
 " Vim: enc=utf-8
 
 " let <F> key not type in insert mode
@@ -16,8 +16,8 @@ inoremap <F11> <NOP>
 inoremap <F12> <NOP>
 
 " buffer move
-map <F6> :bp!<CR>
-map <F7> :bn!<CR>
+nmap <F6> :bp!<CR>
+nmap <F7> :bn!<CR>
 nnoremap <silent> <C-l> :bn!<CR>
 nnoremap <silent> <C-h> :bp!<CR>
 nnoremap <silent> <C-k> :bp!<CR>
@@ -100,6 +100,9 @@ inoremap <M-p> <ESC>pi<Right>
 
 " cancel highlight after searching
 noremap <M-n> :noh<CR>
+
+" use esc to go back normal mode for terminal
+tnoremap <Esc> <C-\><C-n>
 
 " time display
 " Ref: http://vim.wikia.com/wiki/Insert_current_date_or_time
