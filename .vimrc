@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-03-04 23:22:44
+" Last Modified: 2018-07-22 10:00:49
 " Vim: enc=utf-8
 
 let g:browser = 0           " 0 for chrome in cygwin, 1 for firefox in ubuntu
@@ -11,20 +11,20 @@ filetype off                " required
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
-let g:airline_theme='ouo'
+let g:airline_theme = 'ouo'
 let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
-let g:multi_cursor_use_default_mapping=1
-let g:multi_cursor_next_key='<C-o>' "選中一個
-let g:multi_cursor_prev_key='<C-p>' "放棄一個，回到
-let g:multi_cursor_skip_key='<C-x>' "跳過
-let g:multi_cursor_quit_key='<Esc>' "退出
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key = '<C-o>' "選中一個
+let g:multi_cursor_prev_key = '<C-p>' "放棄一個，回到
+let g:multi_cursor_skip_key = '<C-x>' "跳過
+let g:multi_cursor_select_all_key = '<M-o>'
+let g:multi_cursor_quit_key = '<Esc>' "退出
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 Plug 'maralla/completor.vim'
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
@@ -33,14 +33,18 @@ Plug 'majutsushi/tagbar', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 command! FALL call fzf#run({'source': 'find ~/ -type f', 'sink':  'edit'})
+Plug 'itchyny/vim-cursorword'
+Plug 'junegunn/vader.vim', { 'for': 'vader' }
 Plug 'aben20807/aben20807.vim'
 Plug 'aben20807/vim-commenter'
-let g:commenter_custom_map = {'html':{ 'll': '', 'bl': '<!-- ', 'br': ' -->' },
-                             \'tmux':{ 'll': '# '}}
 Plug 'aben20807/vim-surrounder'
 Plug 'aben20807/vim-runner'
 let g:runner_is_with_ale = 1
 let g:runner_is_with_md = 1
+let g:runner_auto_remove_tmp = 1
+let g:runner_cpp_compile_options = "-std=c++14 -Wall -lm -O2 -pipe"
+" let g:runner_cpp_run_options = "< test.in"
+" let g:runner_cpp_run_options = "< test.in > test.out"
 
 call plug#end()
 filetype plugin indent on    " required
