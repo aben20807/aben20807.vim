@@ -1,9 +1,9 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-03-04 23:23:03
+" Last Modified: 2018-07-22 10:08:24
 " Vim: enc=utf-8
-
 " Config of all plugin
+
 " --- vim-airline/vim-airline ---
 set laststatus = 2
 " enable tabline
@@ -41,9 +41,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = 'B'
 let g:airline_symbols.readonly = 'R'
 let g:airline_symbols.notexists = '?'
-"
-" airline git symbol
-"---tpope/vim-fugitive---"
 
 " --- scrooloose/nerdtree ---
 map <C-n> :NERDTreeToggle<CR>
@@ -67,6 +64,12 @@ autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 
 " --- terryma/vim-multiple-cursors ---
 "http://www.wklken.me/posts/2015/06/07/vim-plugin-multiplecursors.html
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key = '<C-o>' "選中一個
+let g:multi_cursor_prev_key = '<C-p>' "放棄一個，回到
+let g:multi_cursor_skip_key = '<C-x>' "跳過
+let g:multi_cursor_select_all_key = '<M-o>'
+let g:multi_cursor_quit_key = '<Esc>' "退出
 
 " --- Yggdroot/indentLine ---
 let g:indentLine_setColors = 0
@@ -108,7 +111,7 @@ autocmd VimEnter,Colorscheme * :hi ALEErrorLine     cterm=NONE
 autocmd VimEnter,Colorscheme * :hi ALEError         cterm=NONE ctermfg=251 ctermbg=160
 autocmd VimEnter,Colorscheme * :hi ALEWarning       cterm=NONE ctermfg=251 ctermbg=166
 
-" Plugin 'rust-lang/rust.vim'
+" --- rust-lang/rust.vim
 
 " --- maralla/completor.vim ---
 let g:completor_completion_delay = 10
@@ -153,11 +156,11 @@ endif
 let g:mkdp_auto_close = 0
 let g:mkdp_auto_start = 0
 
-"--- pseewald/vim-anyfold ---"
+" --- pseewald/vim-anyfold ---
 let anyfold_activate = 1
 set foldlevel = 30
 
-"---majutsushi/tagbar---"
+" --- majutsushi/tagbar ---
 let g:tagbar_autofocus = 1
 let g:tagbar_indent = 1
 let g:tagbar_sort = 0
@@ -196,3 +199,16 @@ let g:tagbar_type_cpp = {
                 \ 'v:variables:1:0'
             \ ]}
 nnoremap <C-t> :TagbarToggle<CR>
+
+" --- junegunn/fzf.vim
+command! FALL call fzf#run({'source': 'find ~/ -type f', 'sink':  'edit'})
+
+" --- junegunn/vader.vim
+let g:vader_settings_showquickfix = 0
+" Ref: https://github.com/junegunn/vader.vim/issues/130#issuecomment-298220235
+function! RunVader() abort
+    Vader
+    cclose
+endfunction
+" Map F9 to running Vader tests.
+noremap <buffer> <F9> :call RunVader()<CR>
