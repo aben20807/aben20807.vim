@@ -247,3 +247,7 @@ endfunction
 
 " NB: this supports "rp that replaces the selection by the contents of @r
 vnoremap <silent> <expr> p <sid>Repl()
+
+" search select text by pressing // in visual mode
+" Ref: http://vim.wikia.com/wiki/Search_for_visually_selected_text
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
