@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-07-22 10:11:39
+" Last Modified: 2018-07-22 15:48:29
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -153,6 +153,8 @@ augroup project
     autocmd BufRead,BufNewFile *.py,*.pyw set filetype=python
     autocmd BufRead,BufNewFile *.rs set filetype=rust
     autocmd BufRead,BufNewFile *.log set filetype=log
+    autocmd BufRead,BufNewFile *.launch set filetype=xml
+    autocmd BufRead,BufNewFile *.html set filetype=htmlm4
 augroup END
 
 " --- other important function ---
