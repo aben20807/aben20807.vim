@@ -15,7 +15,4 @@ echo -e "\033[32m\nMove the theme file"
 cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim \
     .vim/plugged/vim-airline-themes/autoload/airline/themes/
 
-echo -e "\033[32m\nRemove setup.sh\033[0m"
-rm setup.sh
-
 echo -e "\033[32m\nFinished, enjoy your vim\033[0m"

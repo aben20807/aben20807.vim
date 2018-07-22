@@ -6,6 +6,12 @@ aben20807.vim
 + ctags `sudo apt-get install ctags`
 
 ## Installation
+### Method 1 (the easiest and fastest)
+```sh
+$ curl -L https://raw.githubusercontent.com/aben20807/aben20807.vim/master/setup.sh | bash
+```
+
+### Method 2
 step 1. Install [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 
 ```sh
