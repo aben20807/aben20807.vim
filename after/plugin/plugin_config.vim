@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-07-22 10:08:24
+" Last Modified: 2018-07-22 12:07:30
 " Vim: enc=utf-8
 " Config of all plugin
 
@@ -64,12 +64,6 @@ autocmd CursorMoved NERD_tree* :call <SID>ShowFilename()
 
 " --- terryma/vim-multiple-cursors ---
 "http://www.wklken.me/posts/2015/06/07/vim-plugin-multiplecursors.html
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_next_key = '<C-o>' "選中一個
-let g:multi_cursor_prev_key = '<C-p>' "放棄一個，回到
-let g:multi_cursor_skip_key = '<C-x>' "跳過
-let g:multi_cursor_select_all_key = '<M-o>'
-let g:multi_cursor_quit_key = '<Esc>' "退出
 
 " --- Yggdroot/indentLine ---
 let g:indentLine_setColors = 0

@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-07-22 10:37:38
+" Last Modified: 2018-07-22 12:07:21
 " Vim: enc=utf-8
 
 if exists("g:has_loaded_aben20807")
@@ -25,6 +25,12 @@ let g:airline#extensions#tabline#enabled = 1
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'terryma/vim-multiple-cursors'
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key = '<C-o>' "選中一個
+let g:multi_cursor_prev_key = '<C-p>' "放棄一個，回到
+let g:multi_cursor_skip_key = '<C-x>' "跳過
+let g:multi_cursor_select_all_key = '<M-o>'
+let g:multi_cursor_quit_key = '<Esc>' "退出
 Plug 'Yggdroot/indentLine'
 Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
