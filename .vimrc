@@ -1,17 +1,15 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-07-22 10:26:23
+" Last Modified: 2018-07-22 10:37:38
 " Vim: enc=utf-8
 
 if exists("g:has_loaded_aben20807")
     finish
 endif
-
 if v:version < 800
     echoerr "These settings and plugins require vim >= 8."
     finish
 endif
-
 let g:has_loaded_aben20807 = 1
 
 let g:browser = 0           " 0 for chrome in cygwin, 1 for firefox in ubuntu
@@ -39,6 +37,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
+Plug 'junegunn/vim-easy-align'
 Plug 'aben20807/aben20807.vim'
 Plug 'aben20807/vim-commenter'
 Plug 'aben20807/vim-surrounder'
