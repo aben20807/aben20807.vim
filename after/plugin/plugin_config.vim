@@ -5,7 +5,7 @@
 
 " Config of all plugin
 " --- vim-airline/vim-airline ---
-set laststatus=2
+set laststatus = 2
 " enable tabline
 let g:airline#extensions#tabline#enabled = 1
 " set left separator
@@ -49,14 +49,14 @@ let g:airline_symbols.notexists = '?'
 map <C-n> :NERDTreeToggle<CR>
 map <leader>ee :NERDTreeToggle<CR>
 nmap <leader>nt :NERDTreeFind<CR>
-let NERDTreeShowBookmarks=1
+let NERDTreeShowBookmarks = 1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.exe', '\.o', '\.orig']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let g:nerdtree_tabs_open_on_gui_startup=0
-let NERDTreeWinSize=25
+let NERDTreeChDirMode = 0
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMouseMode = 2
+let NERDTreeShowHidden = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
+let NERDTreeWinSize = 25
 
 function! s:ShowFilename()
     redraw | echohl Debug |
@@ -90,8 +90,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_lint_on_enter = 1
 let g:ale_set_signs = 1
-let g:ale_sign_error = '◉' " ◈'
-let g:ale_sign_warning = '◉' " ◈'
+let g:ale_sign_error = '◉'
+let g:ale_sign_warning = '◉'
 " check only after savind
 let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_text_changed = 'always'
@@ -111,21 +111,21 @@ autocmd VimEnter,Colorscheme * :hi ALEWarning       cterm=NONE ctermfg=251 cterm
 " Plugin 'rust-lang/rust.vim'
 
 " --- maralla/completor.vim ---
-let g:completor_completion_delay=10
-let g:completor_auto_close_doc=0
-let g:completor_auto_trigger=0
-let g:completor_min_chars=1
-let g:completor_filesize_limit=4096
+let g:completor_completion_delay = 10
+let g:completor_auto_close_doc = 0
+let g:completor_auto_trigger = 0
+let g:completor_min_chars = 1
+let g:completor_filesize_limit = 4096
 function! CompletorToggle()
-    if g:completor_auto_trigger==0
-        let g:completor_auto_trigger=1
+    if g:completor_auto_trigger == 0
+        let g:completor_auto_trigger = 1
     else
-        let g:completor_auto_trigger=0
+        let g:completor_auto_trigger = 0
     endif
     set noshowmode
     redraw
     echohl WarningMsg
-    echo "   ❖  completor ".((g:completor_auto_trigger==0)? "關閉": "開啟")." ❖ "
+    echo "   ❖  completor ".((g:completor_auto_trigger == 0)? "關閉": "開啟")." ❖ "
     echo ""
     echohl NONE
     set showmode
@@ -135,11 +135,11 @@ inoremap <expr> <TAB> pumvisible() ?"\<C-n>": "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ?"\<C-p>": "\<S-TAB>"
 
 " --- octol/vim-cpp-enhanced-highlight ---
-let g:cpp_class_scope_highlight=1
-let g:cpp_member_variable_highlight=1
-let g:cpp_class_decl_highlight=1
-let g:cpp_experimental_simple_template_highlight=1
-let c_no_curly_error=1
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let c_no_curly_error = 1
 
 " --- iamcco/markdown-preview.vim ---
 if !exists('g:browser')
@@ -154,8 +154,8 @@ let g:mkdp_auto_close = 0
 let g:mkdp_auto_start = 0
 
 "--- pseewald/vim-anyfold ---"
-let anyfold_activate=1
-set foldlevel=30
+let anyfold_activate = 1
+set foldlevel = 30
 
 "---majutsushi/tagbar---"
 let g:tagbar_autofocus = 1
@@ -163,7 +163,7 @@ let g:tagbar_indent = 1
 let g:tagbar_sort = 0
 let g:tagbar_map_nexttag = "<C-o>"
 " $ ctags --list-kinds=c
-let g:tagbar_type_c= {
+let g:tagbar_type_c = {
             \ 'ctagstype' : 'c',
             \ 'kinds'     : [
                 \ 'd:macros:1:0',
@@ -179,7 +179,7 @@ let g:tagbar_type_c= {
                 \ 'm:members:0:0',
                 \ 'v:variables:1:0'
             \ ]}
-let g:tagbar_type_cpp= {
+let g:tagbar_type_cpp = {
             \ 'ctagstype' : 'c++',
             \ 'kinds'     : [
                 \ 'd:macros:1:0',
