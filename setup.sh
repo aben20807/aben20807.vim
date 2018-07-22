@@ -9,7 +9,7 @@ curl -fLo ~/.vimrc \
     https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.vimrc
 
 echo -e "\033[32m\nDownload plugins and install\033[0m"
-vim +'silent! PlugInstall' +qall || true
+vim +'silent! PlugInstall' +qall < /dev/tty
 
 echo -e "\033[32m\nMove the theme file"
 cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim \
