@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-01-24 19:09:24
+" Last Modified: 2018-07-22 10:11:39
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -105,6 +105,12 @@ set history=1000
 
 " auto update if file changed in other way
 set autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+function! Fresh(arg) abort
+    execute 'checktime'
+endfunction
+let timer = timer_start(1000,  'Fresh', {'repeat': -1})
 
 " auto change directory
 set autochdir
