@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-07-22 18:39:39
+" Last Modified: 2018-08-24 00:25:32
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -110,7 +110,7 @@ autocmd FileChangedShellPost *
 function! Fresh(arg) abort
     execute 'checktime'
 endfunction
-let timer = timer_start(1000,  'Fresh', {'repeat': -1})
+let timer = timer_start(5000,  'Fresh', {'repeat': -1})
 
 " auto change directory
 set autochdir
@@ -252,3 +252,17 @@ vnoremap <silent> <expr> p <sid>Repl()
 " search select text by pressing // in visual mode
 " Ref: http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+
+" Ref: https://stackoverflow.com/a/4294176/6734174
+function s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(expand('%:h'), 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
