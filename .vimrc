@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-07-22 12:07:21
+" Last Modified: 2018-08-24 00:26:46
 " Vim: enc=utf-8
 
 if exists("g:has_loaded_aben20807")
@@ -41,7 +41,7 @@ Plug 'pseewald/vim-anyfold'
 Plug 'majutsushi/tagbar', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/vim-cursorword'
+" Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 Plug 'junegunn/vim-easy-align'
 Plug 'aben20807/aben20807.vim'
