@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-08-24 00:25:32
+" Last Modified: 2018-09-19 17:41:03
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -254,7 +254,7 @@ vnoremap <silent> <expr> p <sid>Repl()
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 " Ref: https://stackoverflow.com/a/4294176/6734174
-function s:MkNonExDir(file, buf)
+function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
         let dir=fnamemodify(a:file, ':h')
         if !isdirectory(dir)
