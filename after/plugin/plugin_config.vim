@@ -74,7 +74,7 @@ nnoremap <F3> :IndentLinesToggle<CR>
 
 " --- rust-lang/rust.vim
 
-if v:version > 800
+if v:version >= 800
 
 " --- w0rp/ale ---
 let g:ale_sign_column_always = 1
@@ -133,6 +133,8 @@ inoremap <F7> <C-\><C-O>:call CompletorToggle()<CR>
 inoremap <expr> <TAB> pumvisible() ?"\<C-n>": "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ?"\<C-p>": "\<S-TAB>"
 
+else
+    inoremap <F7> <NOP>
 endif " v:version > 800
 
 " --- octol/vim-cpp-enhanced-highlight ---

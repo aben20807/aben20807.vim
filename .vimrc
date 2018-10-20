@@ -33,7 +33,7 @@ let g:multi_cursor_select_all_key = '<M-o>'
 let g:multi_cursor_quit_key = '<Esc>' "退出
 Plug 'Yggdroot/indentLine'
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
-if v:version > 800
+if v:version >= 800
     Plug 'w0rp/ale'
     Plug 'maralla/completor.vim'
 endif
