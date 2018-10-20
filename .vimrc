@@ -6,8 +6,8 @@
 if exists("g:has_loaded_aben20807")
     finish
 endif
-if v:version < 800
-    echoerr "These settings and plugins require vim >= 8."
+if v:version < 700
+    echoerr "These settings and plugins require vim >= 7."
     finish
 endif
 let g:has_loaded_aben20807 = 1
@@ -32,9 +32,11 @@ let g:multi_cursor_skip_key = '<C-x>' "跳過
 let g:multi_cursor_select_all_key = '<M-o>'
 let g:multi_cursor_quit_key = '<Esc>' "退出
 Plug 'Yggdroot/indentLine'
-Plug 'w0rp/ale'
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
-Plug 'maralla/completor.vim'
+if v:version > 800
+    Plug 'w0rp/ale'
+    Plug 'maralla/completor.vim'
+endif
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'pseewald/vim-anyfold'

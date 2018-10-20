@@ -72,6 +72,10 @@ let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*', '__Tag_List__']
 let g:indentLine_fileTypeExclude = ['help', 'text']
 nnoremap <F3> :IndentLinesToggle<CR>
 
+" --- rust-lang/rust.vim
+
+if v:version > 800
+
 " --- w0rp/ale ---
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
@@ -105,8 +109,6 @@ autocmd VimEnter,Colorscheme * :hi ALEErrorLine     cterm=NONE
 autocmd VimEnter,Colorscheme * :hi ALEError         cterm=NONE ctermfg=251 ctermbg=160
 autocmd VimEnter,Colorscheme * :hi ALEWarning       cterm=NONE ctermfg=251 ctermbg=166
 
-" --- rust-lang/rust.vim
-
 " --- maralla/completor.vim ---
 let g:completor_completion_delay = 10
 let g:completor_auto_close_doc = 0
@@ -130,6 +132,8 @@ endfunction
 inoremap <F7> <C-\><C-O>:call CompletorToggle()<CR>
 inoremap <expr> <TAB> pumvisible() ?"\<C-n>": "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ?"\<C-p>": "\<S-TAB>"
+
+endif " v:version > 800
 
 " --- octol/vim-cpp-enhanced-highlight ---
 let g:cpp_class_scope_highlight = 1
