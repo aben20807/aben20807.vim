@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-07-22 12:07:30
+" Last Modified: 2018-10-23 08:49:27
 " Vim: enc=utf-8
 " Config of all plugin
 
@@ -159,6 +159,9 @@ let g:mkdp_auto_start = 0
 " --- pseewald/vim-anyfold ---
 let anyfold_activate = 1
 set foldlevel=30
+" save view when exit and load view when enter
+autocmd BufWinLeave * mkview
+autocmd User anyfoldLoaded silent! loadview
 
 " --- majutsushi/tagbar ---
 let g:tagbar_autofocus = 1

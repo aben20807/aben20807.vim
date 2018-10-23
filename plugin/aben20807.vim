@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-09-19 17:41:03
+" Last Modified: 2018-10-23 08:48:35
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -33,9 +33,6 @@ cnoreabbrev db bd
 
 " let cursor in the middle of screen when entering vim
 autocmd VimEnter * :exec "normal! \zz"
-
-" store fold
-autocmd BufWinLeave * mkview
 
 " return to last edit position when opening files
 autocmd BufReadPost *
