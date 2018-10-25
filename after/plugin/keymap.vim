@@ -1,19 +1,23 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: keymap.vim
-" Last Modified: 2018-07-22 10:35:17
+" Last Modified: 2018-10-25 12:23:10
 " Vim: enc=utf-8
 
 " let <F> key not type in insert mode
-inoremap <F2>  <NOP>
-inoremap <F3>  <NOP>
-inoremap <F4>  <NOP>
-inoremap <F5>  <NOP>
-inoremap <F6>  <NOP>
-inoremap <F8>  <NOP>
-inoremap <F9>  <NOP>
-inoremap <F10> <NOP>
-inoremap <F11> <NOP>
-inoremap <F12> <NOP>
+" inoremap <F2>  <ESC><F2><CR>i
+imap <F2>  <ESC><F2>li
+imap <F3>  <ESC><F3>li
+imap <F4>  <ESC><F4>li
+imap <F5>  <ESC><F5>
+imap <F6>  <ESC><F6>li
+imap <F8>  <ESC><F8>li
+imap <F9>  <ESC><F9>li
+imap <F10> <ESC><F10>li
+imap <F11> <ESC><F11>li
+imap <F12> <ESC><F12>li
+
+" background vim
+inoremap <C-z> <C-o><C-z>
 
 " buffer move
 nmap <F6> :bp!<CR>
