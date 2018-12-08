@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: c.vim
-" Last Modified: 2018-01-25 22:15:00
+" Last Modified: 2018-12-08 20:48:21
 " Vim: enc=utf-8
 
 " Abbreviations
@@ -12,6 +12,9 @@
     \<CR><CR>
     \<CR>return 0;
     \<CR>}<UP><UP><TAB><C-R>=Eatchar('\m\s\<bar>\r')<CR>
+:iab //// /*<CR><BS>
+    \ * <CR><BS>
+    \ */<UP><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 
 " Title information
 function! AddTitle()
