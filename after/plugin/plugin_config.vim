@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-07-22 12:07:30
+" Last Modified: 2018-10-25 10:29:54
 " Vim: enc=utf-8
 " Config of all plugin
 
@@ -72,6 +72,10 @@ let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*', '__Tag_List__']
 let g:indentLine_fileTypeExclude = ['help', 'text']
 nnoremap <F3> :IndentLinesToggle<CR>
 
+" --- rust-lang/rust.vim
+
+if v:version >= 800
+
 " --- w0rp/ale ---
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
@@ -105,8 +109,6 @@ autocmd VimEnter,Colorscheme * :hi ALEErrorLine     cterm=NONE
 autocmd VimEnter,Colorscheme * :hi ALEError         cterm=NONE ctermfg=251 ctermbg=160
 autocmd VimEnter,Colorscheme * :hi ALEWarning       cterm=NONE ctermfg=251 ctermbg=166
 
-" --- rust-lang/rust.vim
-
 " --- maralla/completor.vim ---
 let g:completor_completion_delay = 10
 let g:completor_auto_close_doc = 0
@@ -131,6 +133,10 @@ inoremap <F7> <C-\><C-O>:call CompletorToggle()<CR>
 inoremap <expr> <TAB> pumvisible() ?"\<C-n>": "\<TAB>"
 inoremap <expr> <S-TAB> pumvisible() ?"\<C-p>": "\<S-TAB>"
 
+else
+    inoremap <F7> <NOP>
+endif " v:version > 800
+
 " --- octol/vim-cpp-enhanced-highlight ---
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -153,6 +159,13 @@ let g:mkdp_auto_start = 0
 " --- pseewald/vim-anyfold ---
 let anyfold_activate = 1
 set foldlevel=30
+" save view when exit and load view when enter
+" Ref: https://vi.stackexchange.com/a/13874
+augroup AutoSaveFolds
+    autocmd!
+    autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+    autocmd User anyfoldLoaded silent! loadview
+augroup end
 
 " --- majutsushi/tagbar ---
 let g:tagbar_autofocus = 1
