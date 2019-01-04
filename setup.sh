@@ -11,8 +11,4 @@ curl -fLo ~/.vimrc \
 echo -e "\033[32m\nDownload plugins and install\033[0m"
 vim +'silent! PlugInstall' +qall < /dev/tty
 
-echo -e "\033[32m\nMove the theme file"
-cp ~/.vim/plugged/aben20807.vim/airline_theme/ouo.vim \
-    ~/.vim/plugged/vim-airline-themes/autoload/airline/themes/
-
 echo -e "\033[32m\nFinished, enjoy your vim\033[0m"
