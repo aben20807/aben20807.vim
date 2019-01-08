@@ -1,7 +1,16 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: keymap.vim
-" Last Modified: 2018-10-25 12:23:10
+" Last Modified: 2019-01-08 20:50:11
 " Vim: enc=utf-8
+
+" Overwrite default unused setting
+nnoremap H ^
+nnoremap L $
+nnoremap M <NOP>
+nnoremap K k
+nnoremap q: :q
+nnoremap <F1> <NOP>
+
 
 " let <F> key not type in insert mode
 " inoremap <F2>  <ESC><F2><CR>i
@@ -43,7 +52,7 @@ endfor
 " exit vim
 nnoremap <F10> :exec "q!"<CR>
 nnoremap <F11> :exec "up"<CR>
-nnoremap <F12> :exec "x"<CR>
+" nnoremap <F12> :exec "x"<CR>
 
 " move among split pages
 nnoremap <silent> <C-Right> <C-w>l
