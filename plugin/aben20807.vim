@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2019-01-08 17:54:23
+" Last Modified: 2019-01-08 20:33:23
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -121,7 +121,8 @@ set autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 function! Fresh(arg) abort
-    execute 'checktime'
+    " Ref: https://vi.stackexchange.com/a/14317
+    if !bufexists("[Command Line]") | checktime | endif
 endfunction
 let timer = timer_start(5000,  'Fresh', {'repeat': -1})
 
