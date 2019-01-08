@@ -27,6 +27,11 @@ nnoremap <silent> <C-h> :bp!<CR>
 nnoremap <silent> <C-k> :bp!<CR>
 nnoremap <silent> <C-j> :bn!<CR>
 
+" show line numbers, use <F2> to switch
+nnoremap <F2> :set norelativenumber!<CR>:set nonumber!<CR>
+:set number
+:set relativenumber
+
 " map ctrl-a to select whole text
 nnoremap <C-a> ggVG
 
@@ -99,11 +104,35 @@ nnoremap T O<ESC>
 " vnoremap d "+d
 " nnoremap dd "+dd
 
+" Not overwrite paste buffer after pasting
+" Ref: https://stackoverflow.com/a/290723/6734174
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+
+function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<CR>"
+endfunction
+
+" NB: this supports "rp that replaces the selection by the contents of @r
+vnoremap <silent> <expr> p <SID>Repl()
+
 " paste in insert mode
 inoremap <M-p> <ESC>pi<Right>
 
+" map ctrl-f to search text
+nnoremap <C-f> /
+inoremap <C-f> <ESC>/
+
 " cancel highlight after searching
 noremap <M-n> :noh<CR>
+
+" search select text by pressing // in visual mode
+" Ref: http://vim.wikia.com/wiki/Search_for_visually_selected_text
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
+vnoremap <C-f> y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 " use esc to go back normal mode for terminal
 tnoremap <Esc> <C-\><C-n>

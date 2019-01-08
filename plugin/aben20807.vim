@@ -128,11 +128,6 @@ set wildignore+=*.o,*.obj,*.pyc
 " Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" show line numbers, use <F2> to switch
-nnoremap <F2> :set norelativenumber!<CR>:set nonumber!<CR>
-:set number
-:set relativenumber
-
 " let clipboard be the same between vim and os
 " if has('clipboard')
 "     if has('unnamedplus')
@@ -147,11 +142,12 @@ augroup project
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.c set filetype=c
     autocmd BufRead,BufNewFile *.hpp,*.cpp set filetype=cpp
+    autocmd BufRead,BufNewFile *.html set filetype=htmlm4
+    autocmd BufRead,BufNewFile *.js set filetype=javascript
+    autocmd BufRead,BufNewFile *.launch set filetype=xml " ROS
+    autocmd BufRead,BufNewFile *.log set filetype=log
     autocmd BufRead,BufNewFile *.py,*.pyw set filetype=python
     autocmd BufRead,BufNewFile *.rs set filetype=rust
-    autocmd BufRead,BufNewFile *.log set filetype=log
-    autocmd BufRead,BufNewFile *.launch set filetype=xml
-    autocmd BufRead,BufNewFile *.html set filetype=htmlm4
 augroup END
 
 " --- other important function ---
@@ -231,25 +227,7 @@ function! TitleDet()
     call AddTitle()
 endfunction
 
-" I haven't found how to hide this function (yet)
-" Ref: https://stackoverflow.com/a/290723/6734174
-function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
-endfunction
-
-function! s:Repl()
-    let s:restore_reg = @"
-    return "p@=RestoreRegister()\<cr>"
-endfunction
-
-" NB: this supports "rp that replaces the selection by the contents of @r
-vnoremap <silent> <expr> p <sid>Repl()
-
-" search select text by pressing // in visual mode
-" Ref: http://vim.wikia.com/wiki/Search_for_visually_selected_text
-vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
-
+" Automatically create parent directories
 " Ref: https://stackoverflow.com/a/4294176/6734174
 function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
