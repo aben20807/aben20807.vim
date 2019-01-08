@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2018-10-23 08:48:35
+" Last Modified: 2019-01-08 17:54:23
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -257,3 +257,17 @@ augroup BWCCreateDir
     autocmd!
     autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
 augroup END
+
+" log the vim runtime record
+" $ vim [filename] --startuptime log.txt
+function! Vimdb_start()
+    execute('profile start profile.log')
+    execute('profile func *')
+    execute('profile file *')
+endfunction
+function! Vimdb_end()
+    execute('profile pause')
+    execute('noautocmd qall!')
+endfunction
+command! Recstr call Vimdb_start()
+command! Recend call Vimdb_end()
