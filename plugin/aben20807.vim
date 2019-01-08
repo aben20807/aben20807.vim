@@ -100,6 +100,22 @@ set gcr=a:block-blinkon0
 " let history record=1000
 set history=1000
 
+" let undo history not be clear after changing buffer
+" Ref: https://stackoverflow.com/a/22676189/6734174
+let vimDir = '$HOME/.vim'
+let &runtimepath .= ',' . vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    silent call mkdir(myUndoDir, 'p')
+    let &undodir = myUndoDir
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
+endif
+
 " auto update if file changed in other way
 set autoread
 autocmd FileChangedShellPost *
@@ -233,7 +249,7 @@ function! s:MkNonExDir(file, buf)
     if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
         let dir=fnamemodify(a:file, ':h')
         if !isdirectory(dir)
-            call mkdir(expand('%:h'), 'p')
+            silent call mkdir(expand('%:h'), 'p')
         endif
     endif
 endfunction
