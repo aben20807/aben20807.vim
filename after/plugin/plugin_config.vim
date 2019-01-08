@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2018-10-25 10:29:54
+" Last Modified: 2019-01-08 17:52:08
 " Vim: enc=utf-8
 " Config of all plugin
 
@@ -209,6 +209,26 @@ nnoremap <C-t> :TagbarToggle<CR>
 
 " --- junegunn/fzf.vim
 command! FALL call fzf#run({'source': 'find ~/ -type f', 'sink':  'edit'})
+
+" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
 
 " --- junegunn/vader.vim
 let g:vader_settings_showquickfix = 0
