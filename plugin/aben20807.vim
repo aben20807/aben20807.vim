@@ -44,7 +44,7 @@ autocmd BufReadPost *
 set scrolloff=3
 
 " in n, i mode can use mouse to select
-set mouse=v
+set mouse=a
 
 " hide mouse when typing
 set mousehide
@@ -163,6 +163,7 @@ augroup project
     autocmd BufRead,BufNewFile *.js set filetype=javascript
     autocmd BufRead,BufNewFile *.launch set filetype=xml " ROS
     autocmd BufRead,BufNewFile *.log set filetype=log
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
     autocmd BufRead,BufNewFile *.py,*.pyw set filetype=python
     autocmd BufRead,BufNewFile *.rs set filetype=rust
 augroup END
@@ -188,6 +189,9 @@ endfunction
 " remove trailing whitespace when writing a buffer, but not for diff files.
 " From: Vigil <vim5632@rainslide.net>
 function! RemoveTrailingWhitespace()
+    if &ft == "markdown"
+        return
+    endif
     if &ft != "diff"
         let b:curcol = col(".")
         let b:curline = line(".")
