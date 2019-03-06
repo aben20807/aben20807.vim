@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2019-01-08 20:33:23
+" Last Modified: 2019-03-06 15:22:16
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -276,3 +276,13 @@ function! Vimdb_end()
 endfunction
 command! Recstr call Vimdb_start()
 command! Recend call Vimdb_end()
+
+" TMUX key
+" Ref: https://superuser.com/a/402084
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
