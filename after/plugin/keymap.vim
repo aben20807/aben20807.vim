@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: keymap.vim
-" Last Modified: 2019-01-08 20:50:11
+" Last Modified: 2019-03-06 15:09:07
 " Vim: enc=utf-8
 
 " Overwrite default unused setting
@@ -10,6 +10,17 @@ nnoremap M <NOP>
 nnoremap K k
 nnoremap q: :q
 nnoremap <F1> <NOP>
+vnoremap H ^
+vnoremap L $
+vnoremap M <NOP>
+vnoremap K k
+vnoremap <F1> <NOP>
+
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+inoremap <silent> <UP> <C-o>gk
+inoremap <silent> <DOWN> <C-o>gj
+
 
 
 " let <F> key not type in insert mode
@@ -96,12 +107,22 @@ cnoremap <M-j> <c-right>
 
 " move screen
 " Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
-noremap <Up> <C-y>
-noremap <Down> <C-e>
+nnoremap <Up> <C-y>
+nnoremap <Down> <C-e>
 
 " tab indent
 vmap <TAB> >gv
 vmap <S-TAB> <gv
+
+" indent
+nmap < <<
+nmap > >>
+nnoremap <M-,> <<
+nnoremap <M-.> >>
+vnoremap < <gv
+vnoremap > >gv
+vnoremap <M-,> <gv
+vnoremap <M-.> >gv
 
 " new a line normal mode
 nnoremap t o<ESC>
