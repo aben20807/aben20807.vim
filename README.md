@@ -129,8 +129,11 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
     aa = add --all
     st = status
     cmt = commit
+    co = checkout
     graph = log --pretty=oneline --decorate --graph
-    lg = log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    lg = log --color --graph --all \
+        --date=format:'%Y-%m-%d' \
+        --pretty=format:'%Cred%h% Cgreen%cd%Creset - %s %C(bold blue)[%an]%Creset%C(yellow)%d%Creset' --abbrev-commit --
     st-u = ls-files . --exclude-standard --others
     st-i = ls-files . --ignored --exclude-standard --others
 [core]
