@@ -3,7 +3,8 @@ aben20807.vim
 
 ## Environment
 + vim 8
-+ ctags `sudo apt-get install ctags`
++ ~~ctags `sudo apt-get install ctags`~~
++ [universal-ctags/ctags](https://github.com/universal-ctags/ctags)
 
 ## Installation
 ### Method 1 (the easiest and fastest)

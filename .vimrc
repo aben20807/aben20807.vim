@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2018-08-24 00:26:46
+" Last Modified: 2019-06-16 18:03:38
 " Vim: enc=utf-8
 
 if exists("g:has_loaded_aben20807")
@@ -40,12 +40,18 @@ endif
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'pseewald/vim-anyfold'
-Plug 'majutsushi/tagbar', {'do': 'ctags -R -h \".h .c .hpp .cpp .java\"'}
+Plug 'majutsushi/tagbar', {'do': 'unictags -R -h \".h .c .hpp .cpp .java .py\"'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vader.vim', { 'for': 'vader' }
 Plug 'junegunn/vim-easy-align'
+Plug 'hdima/python-syntax'
+let python_highlight_all = 1
+Plug 'rlue/vim-barbaric'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+let g:goyo_height = 90
+
 Plug 'aben20807/aben20807.vim'
 Plug 'aben20807/vim-commenter'
 Plug 'aben20807/vim-surrounder'
@@ -56,6 +62,5 @@ let g:runner_auto_remove_tmp = 1
 " let g:runner_cpp_compile_options = "-std=c++14 -Wall -lm -O2 -pipe"
 " let g:runner_cpp_run_options = "< test.in"
 " let g:runner_cpp_run_options = "< test.in > test.out"
-
 call plug#end()
 filetype plugin indent on    " required
