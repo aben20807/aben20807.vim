@@ -157,7 +157,7 @@ let g:mkdp_auto_close = 0
 let g:mkdp_auto_start = 0
 
 " --- pseewald/vim-anyfold ---
-let anyfold_activate = 1
+:AnyFoldActivate
 set foldlevel=30
 " save view when exit and load view when enter
 " Ref: https://vi.stackexchange.com/a/13874
