@@ -1,10 +1,11 @@
-" Vim color file
-" Maintainer:   Huang Po-Hsuan <aben20807@gmail.com>
-" Last Change:  $Date: 2018/07/10 15:41:31 $
+" Author: Huang Po-Hsuan <aben20807@gmail.com>
+" Filename: ouo.vim
+" Last Modified: 2019-08-13 15:43:57
 " URL: https://github.com/aben20807/aben20807.vim/blob/master/colors/ouo.vim
 " Version:  $Id: ouo.vim,v 1.0 fugalh Exp $
-" modified from desert
+" Inspired: desert
 "
+" Vim color file
 " cool help screens
 " :he group-name
 " :he highlight-groups
@@ -77,9 +78,9 @@ if &t_Co > 255
     hi CursorLine       cterm=underline
     hi Directory        ctermfg=172                 "NERDtree 資料夾
     hi DiffAdd          cterm=NONE ctermbg=23
-    " hi DiffAdded        ctermbg=4
+    hi DiffAdded        cterm=NONE ctermfg=40 ctermbg=NONE
     hi DiffChange       cterm=NONE ctermbg=54
-    " hi DiffRemoved      cterm=bold ctermfg=196 ctermbg=124
+    hi DiffRemoved      cterm=NONE ctermfg=160 ctermbg=NONE
     hi DiffDelete       cterm=NONE ctermfg=196 ctermbg=88
     hi DiffText         cterm=NONE ctermbg=29
     hi ErrorMsg         cterm=bold ctermfg=7 ctermbg=1
