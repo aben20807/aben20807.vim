@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: plugin_config.vim
-" Last Modified: 2019-01-08 17:52:08
+" Last Modified: 2019-08-13 15:05:23
 " Vim: enc=utf-8
 " Config of all plugin
 
@@ -47,7 +47,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <leader>ee :NERDTreeToggle<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 let NERDTreeShowBookmarks = 1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.exe', '\.o', '\.orig']
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg$', '\.svn$', '\.bzr$', '\.exe$', '\.o$', '\.orig$']
 let NERDTreeChDirMode = 0
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMouseMode = 2
