@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: keymap.vim
-" Last Modified: 2019-03-06 15:09:07
+" Last Modified: 2019-08-13 15:17:26
 " Vim: enc=utf-8
 
 " Overwrite default unused setting
@@ -117,12 +117,8 @@ vmap <S-TAB> <gv
 " indent
 nmap < <<
 nmap > >>
-nnoremap <M-,> <<
-nnoremap <M-.> >>
 vnoremap < <gv
 vnoremap > >gv
-vnoremap <M-,> <gv
-vnoremap <M-.> >gv
 
 " new a line normal mode
 nnoremap t o<ESC>
