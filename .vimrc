@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2019-08-13 15:09:05
+" Last Modified: 2019-08-13 15:27:42
 " Vim: enc=utf-8
 
 if exists("g:has_loaded_aben20807")
@@ -38,9 +38,10 @@ if v:version >= 800
     Plug 'maralla/completor.vim'
 endif
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
+Plug 'justinmk/vim-syntax-extra', {'for ': ['c', 'lex', 'yacc']}
 Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'pseewald/vim-anyfold'
-Plug 'majutsushi/tagbar', {'do': 'unictags -R -h \".h .c .hpp .cpp .java .py\"'}
+Plug 'majutsushi/tagbar', {'do': 'unictags -R -h \".h .c .hpp .cpp .java .py .y .l\"'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'itchyny/vim-cursorword'
