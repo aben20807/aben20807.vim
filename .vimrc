@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: .vimrc
-" Last Modified: 2019-06-16 18:03:38
+" Last Modified: 2019-08-13 15:09:05
 " Vim: enc=utf-8
 
 if exists("g:has_loaded_aben20807")
@@ -51,6 +51,7 @@ let python_highlight_all = 1
 Plug 'rlue/vim-barbaric'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 let g:goyo_height = 90
+Plug 'rhysd/committia.vim'
 
 Plug 'aben20807/aben20807.vim'
 Plug 'aben20807/vim-commenter'
