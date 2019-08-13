@@ -1,6 +1,6 @@
 " Author: Huang Po-Hsuan <aben20807@gmail.com>
 " Filename: aben20807.vim
-" Last Modified: 2019-03-06 15:22:16
+" Last Modified: 2019-08-13 15:02:47
 " Vim: enc=utf-8
 
 " --- theme ---
@@ -109,7 +109,7 @@ let &runtimepath .= ',' . vimDir
 if has('persistent_undo')
     let myUndoDir = expand(vimDir . '/undodir')
     " Create dirs
-    silent call mkdir(myUndoDir, 'p')
+    silent! call mkdir(myUndoDir, 'p')
     let &undodir = myUndoDir
     set undofile
     set undolevels=1000
