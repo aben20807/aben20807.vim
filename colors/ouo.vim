@@ -90,7 +90,7 @@ if &t_Co > 255
     hi SignColumn       cterm=NONE ctermbg=NONE     "語法檢查通過行
     hi IncSearch        cterm=NONE ctermfg=0 ctermbg=172
     hi LineNr           ctermfg=245                 "行號
-    hi CursorLineNr     ctermfg=11                  "目前行號
+    hi CursorLineNr     cterm=bold ctermfg=11                  "目前行號
     hi MatchParen       cterm=NONE ctermfg=11 ctermbg=0 "配對的括號
     hi ModeMsg          cterm=NONE ctermfg=brown
     hi MoreMsg          ctermfg=135                 "--尚有--
@@ -104,7 +104,7 @@ if &t_Co > 255
     hi Search           cterm=NONE ctermfg=0 ctermbg=11
     hi SpecialKey       ctermfg=245                 "對齊符號
     if has("spell")
-        hi SpellBad    guisp=#FF0000 gui=undercurl
+        hi SpellBad    cterm=bold ctermfg=251 ctermbg=88
         hi SpellCap    guisp=#7070F0 gui=undercurl
         hi SpellLocal  guisp=#70F0F0 gui=undercurl
         hi SpellRare   guisp=#FFFFFF gui=undercurl
