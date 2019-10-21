@@ -298,6 +298,7 @@ autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
 " --- rhysd/committia.vim ---
+let g:committia_min_window_width = 40
 let g:committia_hooks = {}
 function! g:committia_hooks.edit_open(info)
     " Additional settings
