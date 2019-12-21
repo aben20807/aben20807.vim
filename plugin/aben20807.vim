@@ -25,6 +25,24 @@ let mapleader = ','
 " let maplocalleader = '_'
 
 " command abbreviate
+" Quit vim only if the number of buffer is one.
+" function! MyQuit()
+"     if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+"         quit
+"     else
+"         bdelete
+"         redraw
+"         echohl WarningMsg
+"         echo "buffer deleted"
+"         echohl NONE
+"     endif
+" endfunction
+" function! MyWQuit()
+"     write
+"     call MyQuit()
+" endfunction
+" cnoremap q<CR> call MyQuit()<CR>
+" cnoremap wq<CR> call MyWQuit()<CR>
 cnoreabbrev WQ wq
 cnoreabbrev Wq wq
 cnoreabbrev W w
