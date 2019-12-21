@@ -1,7 +1,12 @@
 aben20807.vim
 ===
 
+## screenshot
+
+![screenshot](https://imgur.com/8aNemHB.png)
+
 ## Environment
+
 + vim 8
 + ~~ctags `sudo apt-get install ctags`~~
 + [universal-ctags/ctags](https://github.com/universal-ctags/ctags)
@@ -78,7 +83,26 @@ PS1='\n\[\e[0;32m\]ouo \[\e[0;33m\]\w\[\e[0m\]\n\$ '
 + .bashrc alias
 
 ```sh
-alias ls='ls -F --color=tty --show-control-chars'
+alias ls='exa -F --group-directories-first'
+alias ll='exa -alF'
+alias lls='exa --sort=size -l'
+alias disk='dua i'
+alias network='bmon'
+alias 'ps?'='ps ax | grep '
+
+alias ..='cd ..'
+alias ...='cd ..; cd ..'
+
+alias cat='bat'
+alias vfzf='vim $(fzf)'
+alias svim='sudo vim'
+alias r='ranger'
+
+alias apt-get='apt'
+alias explorer='nautilus'
+alias ascii='figlet'
+alias valgrind='colour-valgrind'
+alias record='asciinema'
 ```
 
 + .bashrc function
@@ -131,14 +155,23 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
     st = status
     cmt = commit
     co = checkout
+    unstage = reset --
+    uncommit = reset --soft HEAD^
     graph = log --pretty=oneline --decorate --graph
     lg = log --color --graph --all \
         --date=format:'%Y-%m-%d' \
-        --pretty=format:'%Cred%h% Cgreen%cd%Creset - %s %C(bold blue)[%an]%Creset%C(yellow)%d%Creset' --abbrev-commit --
+        --pretty=format:'%Cred%h% Cgreen%ad%Creset - %s %C(bold blue)[%an]%Creset%C(yellow)%d%Creset' --abbrev-commit --
     st-u = ls-files . --exclude-standard --others
     st-i = ls-files . --ignored --exclude-standard --others
 [core]
     editor = /usr/bin/vim
+```
+
++ .inputrc
+
+```bash
+"\e[A": history-search-backward
+"\e[B": history-search-forward
 ```
 
 + .astylerc
@@ -156,6 +189,3 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
     + [cyrus-and/gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard)
     + Just put .gdbinit into home directory.
 
-+ screenshot
-
-![screenshot](https://imgur.com/8aNemHB.png)
