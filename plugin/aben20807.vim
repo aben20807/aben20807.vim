@@ -18,6 +18,11 @@ set colorcolumn=80
 set t_ZH=[3m
 set t_ZR=[23m
 
+" Weird char 001B[>4;m 001B[>4;2m
+" Ref: https://stackoverflow.com/a/62150215/6734174
+let &t_TI = ""
+let &t_TE = ""
+
 " --- leader key ---
 " global leader
 let mapleader = ','
