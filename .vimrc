@@ -48,8 +48,8 @@ let g:VM_silent_exit = 1
 
 " --- Syntax ---
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
-Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'lex', 'yacc']}
-Plug 'hdima/python-syntax'
+Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'lex', 'yacc'] }
+Plug 'hdima/python-syntax', { 'for': 'python' }
 let python_highlight_all = 1
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 
@@ -58,6 +58,7 @@ Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
 Plug 'rlue/vim-barbaric', { 'for': 'markdown' }
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 let g:goyo_height = 90
+Plug 'SidOfc/mkdx', { 'for': 'markdown' }
 
 " --- Git ---
 Plug 'rhysd/committia.vim'

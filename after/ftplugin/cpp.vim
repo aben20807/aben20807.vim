@@ -7,12 +7,12 @@
 :iab #i #include <><LEFT><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 :iab _pr printf();<LEFT><LEFT><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 :iab _main #include <iostream>
-    \<CR>#include <cstdio>
-    \<CR>#include <cstdlib>
-    \<CR>using namespace std;
+    \<CR>// using namespace std;
     \<CR>
     \<CR>int main()
     \<CR>{
+    \<CR>// ios::sync_with_stdio(0);
+    \<CR>// cin.tie(0);
     \<CR>
     \<CR>return 0;
     \<CR>}<UP><UP><TAB><C-R>=Eatchar('\m\s\<bar>\r')<CR>

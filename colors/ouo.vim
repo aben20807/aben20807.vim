@@ -77,12 +77,12 @@ if &t_Co > 255
     hi CursorColumn     cterm=reverse
     hi CursorLine       cterm=underline
     hi Directory        ctermfg=172                 "NERDtree 資料夾
-    hi DiffAdd          cterm=NONE ctermbg=23
+    hi DiffAdd          cterm=NONE ctermbg=22
     hi DiffAdded        cterm=NONE ctermfg=40 ctermbg=NONE
-    hi DiffChange       cterm=NONE ctermbg=54
+    hi DiffChange       cterm=NONE ctermbg=NONE
     hi DiffRemoved      cterm=NONE ctermfg=160 ctermbg=NONE
-    hi DiffDelete       cterm=NONE ctermfg=196 ctermbg=88
-    hi DiffText         cterm=NONE ctermbg=29
+    hi DiffDelete       cterm=NONE ctermfg=196 ctermbg=52
+    hi DiffText         cterm=NONE ctermbg=240
     hi ErrorMsg         cterm=bold ctermfg=7 ctermbg=1
     hi VertSplit        cterm=reverse
     hi Folded           ctermfg=darkgrey ctermbg=NONE
