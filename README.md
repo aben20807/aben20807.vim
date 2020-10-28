@@ -10,6 +10,7 @@ aben20807.vim
 + vim 8
 + ~~ctags `sudo apt-get install ctags`~~
 + [universal-ctags/ctags](https://github.com/universal-ctags/ctags)
++ tmux 2.6
 
 ## Installation
 ### Method 1 (the easiest and fastest)
