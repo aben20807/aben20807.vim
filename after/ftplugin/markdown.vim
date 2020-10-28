@@ -1,5 +1,5 @@
 set syntax=markdown
-set spell
+" set spell
 set expandtab
 setlocal tabstop=2
 setlocal softtabstop=2
