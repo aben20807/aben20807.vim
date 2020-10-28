@@ -7,11 +7,8 @@
 :iab #i #include <><LEFT><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 :iab _pr printf();<LEFT><LEFT><C-R>=Eatchar('\m\s\<bar>\r')<CR>
 :iab _main #include <iostream>
-    \<CR>#include <cstdio>
-    \<CR>#include <cstdlib>
-    \<CR>using namespace std;
     \<CR>
-    \<CR>int main()
+    \<CR>int main(int argc, char *argv[])
     \<CR>{
     \<CR>
     \<CR>return 0;
