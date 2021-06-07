@@ -113,7 +113,7 @@ set expandtab
 set shiftwidth=4
 
 " Allow the cursor to move just past the end of the line
-set virtualedit=onemore
+set virtualedit=all
 
 " show detailed mode
 set showmode
@@ -127,7 +127,7 @@ set cinoptions+=L0
 " auto update if file changed in other way
 set autoread
 autocmd FileChangedShellPost *
-            \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+            \ redraw | echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 function! Fresh(arg) abort
     " Ref: https://vi.stackexchange.com/a/14317
     if !bufexists("[Command Line]") | checktime | endif
@@ -352,10 +352,12 @@ map H ^
 map L $
 
 " No arrow keys --- force yourself to use the home row
-nnoremap <up> <nop>
-nnoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+" move screen
+" Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
+nnoremap <Up> <C-y>
+nnoremap <Down> <C-e>
 
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
