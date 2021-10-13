@@ -113,7 +113,7 @@ set expandtab
 set shiftwidth=4
 
 " Allow the cursor to move just past the end of the line
-set virtualedit=all
+set virtualedit=onemore
 
 " show detailed mode
 set showmode
@@ -146,20 +146,23 @@ call plug#begin()
 " Load plugins
 " Theme
 Plug 'chriskempson/base16-vim'
+
 " VIM enhancements
 Plug 'ciaranm/securemodelines'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'justinmk/vim-sneak'
 Plug 'Yggdroot/indentLine'
 Plug 'aben20807/vim-commenter'
+Plug 'aben20807/vim-runner'
 
 " GUI enhancements
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/vim-gitbranch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 Plug 'preservim/tagbar' , {'do': 'unictags -R -h \".h .c .hpp .cpp .java .python .y .l .rs\"'}
+Plug 'junegunn/goyo.vim'
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -176,65 +179,91 @@ Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" Git
+Plug 'aben20807/committia.vim'
+
 call plug#end()
 " =============================================================================
 " # Plugin Setting
 " =============================================================================
 
-" Lightline
-let g:lightline = {
-            \ 'colorscheme' : 'wombat',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ],
-            \   'right': [[  'lineinfo' ],
-            \              [ 'percent' ],
-            \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-            \ },
-            \ 'component_function': {
-            \   'filename': 'LightlineFilename',
-            \   'gitbranch': 'gitbranch#name',
-            \   'totalline': 'TotalLine',
-            \   'cocstatus': 'coc#status'
-            \ },
-            \ 'tabline': {
-            \   'left': [ ['buffers'] ],
-            \   'right': [ ['close'] ]
-            \ },
-            \ 'component_expand': {
-            \   'buffers': 'lightline#bufferline#buffers'
-            \ },
-            \ 'component_type': {
-            \   'buffers': 'tabsel'
-            \ },
-            \ 'mode_map': {
-            \ 'n' : 'N',
-            \ 'i' : 'I',
-            \ 'R' : 'R',
-            \ 'v' : 'V',
-            \ 'V' : 'VL',
-            \ "\<C-v>": 'VB',
-            \ 'c' : 'C',
-            \ 's' : 'S',
-            \ 'S' : 'SL',
-            \ "\<C-s>": 'SB',
-            \ 't': 'T',
-            \ },
-            \ }
-function! TotalLine()
-    return line('$')
-endfunction
-function! LightlineFilename()
-    let root = fnamemodify(get(b:, 'gitbranch_path'), ':h:h')
-    let path = expand('%:p')
-    if path[:len(root)-1] ==# root
-        return path[len(root)+1:]
-    endif
-    return expand('%') !=# '' ? @% : '[No Name]'
-endfunction
+" --- vim-airline/vim-airline ---
+let g:airline_theme = 'ouo'
+set laststatus=2
+" enable tabline
+let g:airline#extensions#tabline#enabled = 1
+" set left separator
+let g:airline#extensions#tabline#left_sep = ' '
+" set left separator which are not editting
+let g:airline#extensions#tabline#left_alt_sep = '|'
+" show buffer number
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#fnamecollapse = 0
+let g:airline#extensions#tabline#fnametruncate = 10
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
 
-" Use auocmd to force lightline update.
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+let g:airline#extensions#tabline#buffer_idx_format = {
+    \ '0': '0:',
+    \ '1': '1:',
+    \ '2': '2 ',
+    \ '3': '3 ',
+    \ '4': '4 ',
+    \ '5': '5 ',
+    \ '6': '6 ',
+    \ '7': '7 ',
+    \ '8': '8 ',
+    \ '9': '9 '
+    \}
+
+let g:airline_mode_map = {
+      \ '__'     : '-',
+      \ 'c'      : 'C',
+      \ 'i'      : 'I',
+      \ 'ic'     : 'I',
+      \ 'ix'     : 'I',
+      \ 'n'      : 'N',
+      \ 'multi'  : 'M',
+      \ 'ni'     : 'N',
+      \ 'no'     : 'N',
+      \ 'R'      : 'R',
+      \ 'Rv'     : 'R',
+      \ 's'      : 'S',
+      \ 'S'      : 'S',
+      \ ''      : 'SB',
+      \ 't'      : 'T',
+      \ 'v'      : 'V',
+      \ 'V'      : 'VL',
+      \ ''     : 'VB',
+      \ }
+let g:airline#extensions#ale#enabled = 1
+let airline#extensions#ale#error_symbol = 'E'
+let airline#extensions#ale#warning_symbol = 'W'
+let airline#extensions#coc#error_symbol = 'E'
+let airline#extensions#coc#warning_symbol = 'W'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.colnr = ':'
+let g:airline_symbols.linenr = ':'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = 'B'
+let g:airline_symbols.readonly = 'R'
+let g:airline_symbols.notexists = '?'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -344,12 +373,50 @@ let g:commenter_n_key = "<C-j>"
 let g:commenter_i_key = "<C-j>"
 let g:commenter_v_key = "<C-j>"
 
+" --- junegunn/goyo.vim ---
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
+
+" --- aben20807/committia.vim (rhysd/committia.vim) ---
+let g:committia_resize_status_window = 0
+let g:committia_min_window_width = 40
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    " Additional settings
+    setlocal spell
+    " If no commit message, start with insert mode
+    if a:info.vcs ==# 'git' && getline(1) ==# ''
+        startinsert
+    endif
+    " Scroll the diff window from insert mode
+    imap <buffer><C-j> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-k> <Plug>(committia-scroll-diff-up-half)
+endfunction
+
 " =============================================================================
 " # Key
 " =============================================================================
 " Jump to start and end of line using the home row keys
 map H ^
-map L $
+map L $l
 
 " No arrow keys --- force yourself to use the home row
 inoremap <left> <nop>
@@ -358,6 +425,8 @@ inoremap <right> <nop>
 " Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
 nnoremap <Up> <C-y>
 nnoremap <Down> <C-e>
+inoremap <silent> <UP> <C-o><C-y>
+inoremap <silent> <DOWN> <C-o><C-e>
 
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
@@ -366,6 +435,16 @@ nnoremap <right> :bn<CR>
 " Move by line
 nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+
+" move more steps
+nnoremap <M-h> 5h
+nnoremap <M-j> 5j
+nnoremap <M-k> 5k
+nnoremap <M-l> 5l
+vnoremap <M-h> 5h
+vnoremap <M-j> 5j
+vnoremap <M-k> 5k
+vnoremap <M-l> 5l
 
 " tab indent
 vmap <TAB> >gv
@@ -451,6 +530,13 @@ function! WriteCreatingDirs()
     write
 endfunction
 command W :call WriteCreatingDirs()
+
+" --- other important function ---
+" eat char c if c is one member of pat
+function! Eatchar(pat)
+    let c = nr2char(getchar(0))
+    return (c =~ a:pat)? '': c
+endfunction
 
 " TMUX key
 " Ref: https://superuser.com/a/402084
