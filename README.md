@@ -160,12 +160,30 @@ $ gsettings set org.gnome.desktop.interface cursor-blink false
     uncommit = reset --soft HEAD^
     graph = log --pretty=oneline --decorate --graph
     lg = log --color --graph --all \
-        --date=format:'%Y-%m-%d' \
-        --pretty=format:'%Cred%h% Cgreen%ad%Creset - %s %C(bold blue)[%an]%Creset%C(yellow)%d%Creset' --abbrev-commit --
+    --date=format:'%Y-%m-%d' \
+    --pretty=format:'%Cred%h% Cgreen%ad%Creset - %s %C(bold blue)[%an]%Creset%C(yellow)%d%Creset' --abbrev-commit --
     st-u = ls-files . --exclude-standard --others
     st-i = ls-files . --ignored --exclude-standard --others
+
 [core]
-    editor = /usr/bin/vim
+    editor = /usr/bin/nvim
+
+[pager]
+    branch = false
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+    line-numbers = true
+
+[interactive]
+    diffFilter = delta --color-only
 ```
 
 + .inputrc
