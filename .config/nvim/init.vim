@@ -125,6 +125,9 @@ set wildignore+=*.o,*.obj,*.pyc
 let mapleader = "\<Space>"
 set mouse=a
 
+autocmd Syntax c,cpp,vim,python,rust setlocal foldmethod=indent
+autocmd Syntax c,cpp,vim,python,rust normal zR
+
 " =============================================================================
 "  # Pugins
 " =============================================================================
