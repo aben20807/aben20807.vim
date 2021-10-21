@@ -11,25 +11,11 @@ set rtp+=~/.config/nvim/plugged/base16-vim/
 colorscheme base16-gruvbox-dark-hard
 syntax on
 
-" Search results centered please
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-" Proper search
-set incsearch
-set ignorecase
-set smartcase
-set gdefault
-
 " =============================================================================
 " # Editor settings
 " =============================================================================
 filetype plugin indent on
 set updatetime=300
-set showtabline=2
-set laststatus=2
 set autoindent
 set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 set encoding=utf-8
@@ -39,9 +25,6 @@ set hidden
 set nowrap
 set nojoinspaces
 let g:sneak#s_next = 1
-let g:vim_markdown_new_list_item_indent = 0
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_frontmatter = 1
 set printfont=:h10
 set printencoding=utf-8
 set printoptions=paper:letter
@@ -51,6 +34,12 @@ set signcolumn=yes
 " let new page occurred at right or below
 set splitright
 set splitbelow
+
+" Proper search
+set incsearch
+set ignorecase
+set smartcase
+set gdefault
 
 " let italic enable
 " Ref: https://askubuntu.com/a/514524
@@ -95,21 +84,17 @@ endif
 set nobackup
 " write into backup file
 set writebackup
-" use swap file
-set swapfile
+" not use swap file
+set noswapfile
 
 " not auto comment when changing line
 " Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " --- tab ---
-" tab size
 set tabstop=4
-" regard multiple spaces as tab
 set softtabstop=4
-" let tab become space
 set expandtab
-" indent size
 set shiftwidth=4
 
 " Allow the cursor to move just past the end of the line
@@ -136,7 +121,7 @@ let timer = timer_start(5000,  'Fresh', {'repeat': -1})
 
 " igonre file
 set wildignore+=*.o,*.obj,*.pyc
-let mapleader = "\<Space>"
+let mapleader = " "
 set mouse=a
 
 " =============================================================================
@@ -156,13 +141,10 @@ Plug 'aben20807/vim-commenter'
 Plug 'aben20807/vim-runner'
 
 " GUI enhancements
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/vim-gitbranch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 Plug 'preservim/tagbar' , {'do': 'unictags -R -h \".h .c .hpp .cpp .java .python .y .l .rs\"'}
-Plug 'junegunn/goyo.vim'
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -170,6 +152,8 @@ Plug 'junegunn/fzf.vim'
 
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = 
+            \ ['coc-clangd', 'coc-pyright', 'coc-rust-analyzer', 'coc-explorer', 'coc-snippets', 'coc-word', 'coc-git']
 
 " Syntactic language support
 Plug 'cespare/vim-toml'
@@ -177,7 +161,6 @@ Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 
 " Git
 Plug 'aben20807/committia.vim'
@@ -186,85 +169,7 @@ call plug#end()
 " =============================================================================
 " # Plugin Setting
 " =============================================================================
-
-" --- vim-airline/vim-airline ---
-let g:airline_theme = 'ouo'
-set laststatus=2
-" enable tabline
-let g:airline#extensions#tabline#enabled = 1
-" set left separator
-let g:airline#extensions#tabline#left_sep = ' '
-" set left separator which are not editting
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" show buffer number
-let g:airline#extensions#tabline#buffer_nr_show = 0
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#fnamecollapse = 0
-let g:airline#extensions#tabline#fnametruncate = 10
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-nmap <leader>1 <Plug>AirlineSelectTab1
-nmap <leader>2 <Plug>AirlineSelectTab2
-nmap <leader>3 <Plug>AirlineSelectTab3
-nmap <leader>4 <Plug>AirlineSelectTab4
-nmap <leader>5 <Plug>AirlineSelectTab5
-nmap <leader>6 <Plug>AirlineSelectTab6
-nmap <leader>7 <Plug>AirlineSelectTab7
-nmap <leader>8 <Plug>AirlineSelectTab8
-nmap <leader>9 <Plug>AirlineSelectTab9
-
-let g:airline#extensions#tabline#buffer_idx_format = {
-    \ '0': '0:',
-    \ '1': '1:',
-    \ '2': '2 ',
-    \ '3': '3 ',
-    \ '4': '4 ',
-    \ '5': '5 ',
-    \ '6': '6 ',
-    \ '7': '7 ',
-    \ '8': '8 ',
-    \ '9': '9 '
-    \}
-
-let g:airline_mode_map = {
-      \ '__'     : '-',
-      \ 'c'      : 'C',
-      \ 'i'      : 'I',
-      \ 'ic'     : 'I',
-      \ 'ix'     : 'I',
-      \ 'n'      : 'N',
-      \ 'multi'  : 'M',
-      \ 'ni'     : 'N',
-      \ 'no'     : 'N',
-      \ 'R'      : 'R',
-      \ 'Rv'     : 'R',
-      \ 's'      : 'S',
-      \ 'S'      : 'S',
-      \ ''      : 'SB',
-      \ 't'      : 'T',
-      \ 'v'      : 'V',
-      \ 'V'      : 'VL',
-      \ ''     : 'VB',
-      \ }
-let g:airline#extensions#ale#enabled = 1
-let airline#extensions#ale#error_symbol = 'E'
-let airline#extensions#ale#warning_symbol = 'W'
-let airline#extensions#coc#error_symbol = 'E'
-let airline#extensions#coc#warning_symbol = 'W'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.colnr = ':'
-let g:airline_symbols.linenr = ':'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = 'B'
-let g:airline_symbols.readonly = 'R'
-let g:airline_symbols.notexists = '?'
-
+" --- neoclide/coc.nvim ---
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -296,6 +201,13 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <silent> <space>i  :call CocActionAsync('codeAction', '', 'Implement missing members')<cr>
 nnoremap <C-n> :CocCommand explorer<CR>
 
+" coc-git
+function! s:update_git_status()
+  let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+endfunction
+let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
+autocmd User CocGitStatusChange call s:update_git_status()
+
 " <leader>s for Rg search
 " from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 if executable('ag')
@@ -314,43 +226,7 @@ command! -bang -nargs=* Ag
             \                 <bang>0)
 
 " --- majutsushi/tagbar ---
-let g:tagbar_autofocus = 1
-let g:tagbar_indent = 1
-let g:tagbar_sort = 0
 let g:tagbar_map_nexttag = "<C-o>"
-" $ ctags --list-kinds=c
-let g:tagbar_type_c = {
-            \ 'ctagstype' : 'c',
-            \ 'kinds'     : [
-            \ 'd:macros:1:0',
-            \ 'p:prototypes:1:0',
-            \ 'f:functions',
-            \ 'g:enums',
-            \ 'e:enumerators:0:0',
-            \ 't:typedefs:0:0',
-            \ 'n:namespaces',
-            \ 'c:classes',
-            \ 's:structs',
-            \ 'u:unions',
-            \ 'm:members:0:0',
-            \ 'v:variables:1:0'
-            \ ]}
-let g:tagbar_type_cpp = {
-            \ 'ctagstype' : 'c++',
-            \ 'kinds'     : [
-            \ 'd:macros:1:0',
-            \ 'p:prototypes:1:0',
-            \ 'f:ns',
-            \ 'g:enums',
-            \ 'e:enumerators:0:0',
-            \ 't:typedefs:0:0',
-            \ 'n:namespaces',
-            \ 'c:classes',
-            \ 's:structs',
-            \ 'u:unions',
-            \ 'm:members:0:0',
-            \ 'v:variables:1:0'
-            \ ]}
 nnoremap <C-t> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = '/usr/local/bin/unictags'
 
@@ -373,28 +249,6 @@ let g:commenter_n_key = "<C-j>"
 let g:commenter_i_key = "<C-j>"
 let g:commenter_v_key = "<C-j>"
 
-" --- junegunn/goyo.vim ---
-function! s:goyo_enter()
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-
-function! s:goyo_leave()
-  " Quit Vim if this is the only remaining buffer
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    if b:quitting_bang
-      qa!
-    else
-      qa
-    endif
-  endif
-endfunction
-
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
-
 " --- aben20807/committia.vim (rhysd/committia.vim) ---
 let g:committia_resize_status_window = 0
 let g:committia_min_window_width = 40
@@ -415,12 +269,9 @@ endfunction
 " # Key
 " =============================================================================
 " Jump to start and end of line using the home row keys
-map H ^
-map L $l
+nnoremap H ^
+nnoremap L $l
 
-" No arrow keys --- force yourself to use the home row
-inoremap <left> <nop>
-inoremap <right> <nop>
 " move screen
 " Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
 nnoremap <Up> <C-y>
@@ -446,10 +297,6 @@ vnoremap <M-j> 5j
 vnoremap <M-k> 5k
 vnoremap <M-l> 5l
 
-" tab indent
-vmap <TAB> >gv
-vmap <S-TAB> <gv
-
 " indent
 nmap < <<
 nmap > >>
@@ -462,7 +309,6 @@ noremap <M-n> :noh<CR>
 " search select text by pressing // in visual mode
 " Ref: http://vim.wikia.com/wiki/Search_for_visually_selected_text
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
-vnoremap <C-f> y/\V<C-r>=escape(@",'/\'<CR><CR>)
 
 " map ctrl-a to select whole text
 nnoremap <C-a> ggVG
@@ -485,22 +331,29 @@ set invlist
 inoremap <C-z> <C-o><C-z>
 
 " move among split pages
-nnoremap <silent> <C-Right> <C-w>l
-nnoremap <silent> <C-Left>  <C-w>h
-nnoremap <silent> <C-Up>    <C-w>k
-nnoremap <silent> <C-Down>  <C-w>j
+nnoremap <leader>l <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>k <C-w>k
+nnoremap <leader>n <C-w>j
 
 " move split window
-nnoremap <silent> <C-S-Right> <C-w>L
-nnoremap <silent> <C-S-Left>  <C-w>H
-nnoremap <silent> <C-S-Up>    <C-w>K
-nnoremap <silent> <C-S-Down>  <C-w>J
+nnoremap <C-S-Right> <C-w>L
+nnoremap <C-S-Left>  <C-w>H
+nnoremap <C-S-Up>    <C-w>K
+nnoremap <C-S-Down>  <C-w>J
 
 " change splite window size
 nnoremap <M-+> <C-w>10>
 nnoremap <M--> <C-w>10<
 nnoremap <M-=> <C-w>=
 nnoremap <M-_> <C-w>30><C-w>30+
+
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
 " Not overwrite paste buffer after pasting
 " Ref: https://stackoverflow.com/a/290723/6734174
