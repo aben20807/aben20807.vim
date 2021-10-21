@@ -17,7 +17,8 @@ syntax on
 filetype plugin indent on
 set updatetime=300
 set autoindent
-set timeoutlen=300 " http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
+set notimeout
+set nottimeout
 set encoding=utf-8
 set scrolloff=2
 set noshowmode
@@ -121,7 +122,7 @@ let timer = timer_start(5000,  'Fresh', {'repeat': -1})
 
 " igonre file
 set wildignore+=*.o,*.obj,*.pyc
-let mapleader = " "
+let mapleader = "\<Space>"
 set mouse=a
 
 " =============================================================================
@@ -139,6 +140,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'Yggdroot/indentLine'
 Plug 'aben20807/vim-commenter'
 Plug 'aben20807/vim-runner'
+Plug 'tpope/vim-sleuth'
 
 " GUI enhancements
 Plug 'itchyny/vim-gitbranch'
@@ -194,13 +196,13 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
-nmap <leader> rn <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Implement methods for trait
 nnoremap <silent> <space>i  :call CocActionAsync('codeAction', '', 'Implement missing members')<cr>
 nnoremap <C-n> :CocCommand explorer<CR>
-
+" 
 " coc-git
 function! s:update_git_status()
   let g:airline_section_b = "%{get(g:,'coc_git_status','')}"
@@ -315,7 +317,7 @@ nnoremap <C-a> ggVG
 
 " buffer map
 for i in range(1, 9)
-    exec 'noremap <Leader>'.i.' :'.i.'b!<CR>'
+    exec 'nnoremap <Leader>'.i.' :'.i.'b!<CR>'
 endfor
 
 " show line numbers, use <F2> to switch
@@ -334,7 +336,7 @@ inoremap <C-z> <C-o><C-z>
 nnoremap <leader>l <C-w>l
 nnoremap <leader>h <C-w>h
 nnoremap <leader>k <C-w>k
-nnoremap <leader>n <C-w>j
+nnoremap <leader>j <C-w>j
 
 " move split window
 nnoremap <C-S-Right> <C-w>L
@@ -368,25 +370,9 @@ endfunction
 " NB: this supports "rp that replaces the selection by the contents of @r
 vnoremap <silent> <expr> p <SID>Repl()
 
-" Automatically create parent directories
-" Ref: https://stackoverflow.com/a/4294176/6734174
-"function! s:MkNonExDir(file, buf)
-"    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-"        let dir=fnamemodify(a:file, ':h')
-"        if !isdirectory(dir)
-"            silent call mkdirexpand('%:h'), 'p')
-"        endif
-"    endif
-"endfunction
-function! WriteCreatingDirs()
-    execute ':silent !mkdir -p %:h'
-    write
-endfunction
-command W :call WriteCreatingDirs()
-
 " --- other important function ---
 " eat char c if c is one member of pat
-function! Eatchar(pat)
+function! g:Eatchar(pat)
     let c = nr2char(getchar(0))
     return (c =~ a:pat)? '': c
 endfunction
