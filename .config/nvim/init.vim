@@ -125,8 +125,8 @@ set wildignore+=*.o,*.obj,*.pyc
 let mapleader = "\<Space>"
 set mouse=a
 
-autocmd Syntax c,cpp,vim,python,rust setlocal foldmethod=indent
-autocmd Syntax c,cpp,vim,python,rust normal zR
+" autocmd Syntax c,cpp,vim,python,rust setlocal foldmethod=indent
+" autocmd Syntax c,cpp,vim,python,rust normal zR
 
 " =============================================================================
 "  # Pugins
@@ -276,6 +276,8 @@ endfunction
 " Jump to start and end of line using the home row keys
 nnoremap H ^
 nnoremap L $l
+vnoremap H ^
+vnoremap L $
 
 " move screen
 " Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
