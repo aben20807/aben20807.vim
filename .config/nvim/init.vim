@@ -10,6 +10,7 @@ let base16colorspace=256
 set rtp+=~/.config/nvim/plugged/base16-vim/
 colorscheme base16-gruvbox-dark-hard
 syntax on
+let g:python3_host_prog = expand("~/.pyenv/versions/neovim3/bin/python")
 
 " =============================================================================
 " # Editor settings
@@ -149,7 +150,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'itchyny/vim-gitbranch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
-Plug 'preservim/tagbar' , {'do': 'unictags -R -h \".h .c .hpp .cpp .java .python .y .l .rs\"'}
+Plug 'preservim/tagbar' , {'do': 'ctags -R -h \".h .c .hpp .cpp .java .python .y .l .rs\"'}
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -174,6 +175,12 @@ call plug#end()
 " =============================================================================
 " # Plugin Setting
 " =============================================================================
+
+" --- aben20807/vim-runner ---
+let g:runner_c_executable = "gcc-8"
+let g:runner_cpp_executable = "g++-8"
+let g:runner_c_compile_options = "-std=gnu99 -Wall -O2"
+let g:runner_cpp_compile_options = "-std=c++17 -Wall -lm -O2 -pipe"
 " --- neoclide/coc.nvim ---
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -233,7 +240,8 @@ command! -bang -nargs=* Ag
 " --- majutsushi/tagbar ---
 let g:tagbar_map_nexttag = "<C-o>"
 nnoremap <C-t> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/usr/local/bin/unictags'
+let g:tagbar_ctags_bin = '/snap/bin/ctags'
+let g:tagbar_use_cache = 0
 
 " rust
 let g:rustfmt_autosave = 1
@@ -283,8 +291,6 @@ vnoremap L $
 " Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
 nnoremap <Up> <C-y>
 nnoremap <Down> <C-e>
-inoremap <silent> <UP> <C-o><C-y>
-inoremap <silent> <DOWN> <C-o><C-e>
 
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
@@ -332,7 +338,7 @@ set relativenumber
 
 " <leader>, shows/hides hidden characters
 nnoremap <leader>, :set invlist<cr>
-set invlist
+" set invlist
 
 " background vim
 inoremap <C-z> <C-o><C-z>
