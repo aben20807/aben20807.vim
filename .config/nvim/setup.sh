@@ -7,6 +7,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 mkdir -p ~/.config/nvim/after/ftplugin/
 mkdir -p ~/.config/nvim/undodir
 
+echo -e "\033[32m\nInstall node.js for coc.vim\033[0m"
+curl -sL install-node.vercel.app/lts | bash
+
 echo -e "\033[32m\nDownload files from aben20807.vim\033[0m"
 curl -fLo ~/.config/nvim/init.vim \
     https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.config/nvim/init.vim
