@@ -51,6 +51,8 @@ $ cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim .vim/plugged/vim-airline-t
 $ curl -L https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.config/nvim/setup.sh | bash
 ```
 
+Note: use [[the steps]](https://github.com/aben20807/blog-post-issues/issues/111#issue-1032076012) to solve "Error on execute :pyx command"
+
 ## Usage
 + see [CHEATSHEET](https://github.com/aben20807/aben20807.vim/blob/master/CHEATSHEET.md)
 
