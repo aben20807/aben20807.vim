@@ -45,6 +45,12 @@ Step 4. Move airline theme.
 $ cp .vim/plugged/aben20807.vim/airline_theme/ouo.vim .vim/plugged/vim-airline-themes/autoload/airline/themes/
 ```
 
+## Installation (Neovim)
+
+```sh
+$ curl -L https://raw.githubusercontent.com/aben20807/aben20807.vim/master/.config/nvim/setup.sh | bash
+```
+
 ## Usage
 + see [CHEATSHEET](https://github.com/aben20807/aben20807.vim/blob/master/CHEATSHEET.md)
 
