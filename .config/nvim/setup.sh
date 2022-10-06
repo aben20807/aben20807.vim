@@ -8,7 +8,7 @@ mkdir -p ~/.config/nvim/after/ftplugin/
 mkdir -p ~/.config/nvim/undodir
 
 echo -e "\033[32m\nInstall node.js for coc.vim\033[0m"
-curl -sL install-node.vercel.app/lts | bash
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 
 echo -e "\033[32m\nDownload files from aben20807.vim\033[0m"
 curl -fLo ~/.config/nvim/init.vim \
