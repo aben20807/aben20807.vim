@@ -1,16 +1,5 @@
 " Author: Huang Po-Hsuan
 " Location: ~/.config/nvim/init.vim
-" =============================================================================
-" # Color
-" =============================================================================
-set t_Co=256
-set termguicolors
-set background=dark
-let base16colorspace=256
-set rtp+=~/.config/nvim/plugged/base16-vim/
-colorscheme base16-gruvbox-dark-hard
-syntax on
-let g:python3_host_prog = expand("~/.pyenv/versions/neovim3/bin/python")
 
 " =============================================================================
 " # Editor settings
@@ -277,6 +266,18 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><C-j> <Plug>(committia-scroll-diff-down-half)
     imap <buffer><C-k> <Plug>(committia-scroll-diff-up-half)
 endfunction
+
+" =============================================================================
+" # Color
+" =============================================================================
+set t_Co=256
+set termguicolors
+set background=dark
+let base16colorspace=256
+set rtp+=~/.config/nvim/plugged/base16-vim/
+colorscheme base16-gruvbox-dark-hard
+syntax on
+let g:python3_host_prog = expand("~/.pyenv/versions/neovim3/bin/python")
 
 " =============================================================================
 " # Key
