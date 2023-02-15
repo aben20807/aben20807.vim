@@ -1,9 +1,9 @@
 " Author: Huang Po-Hsuan
 " Location: ~/.config/nvim/init.vim
-
 " =============================================================================
 " # Editor settings
 " =============================================================================
+filetype off
 filetype plugin indent on
 set updatetime=300
 set autoindent
@@ -118,6 +118,29 @@ set mouse=a
 " autocmd Syntax c,cpp,vim,python,rust setlocal foldmethod=indent
 " autocmd Syntax c,cpp,vim,python,rust normal zR
 
+function! Is_WSL() abort
+  let proc_version = '/proc/version'
+  return filereadable(proc_version)
+        \  ? !empty(filter(
+        \    readfile(proc_version, '', 1), { _, val -> val =~? 'microsoft' }))
+        \  : v:false
+endfunction
+
+if Is_WSL()
+    let g:clipboard = {
+        \   'name': 'win32yank-wsl',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i --crlf',
+        \      '*': 'win32yank.exe -i --crlf',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o --lf',
+        \      '*': 'win32yank.exe -o --lf',
+        \   },
+        \   'cache_enabled': 0,
+        \ }
+endif
+
 " =============================================================================
 "  # Pugins
 " =============================================================================
@@ -134,6 +157,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'aben20807/vim-commenter'
 Plug 'aben20807/vim-runner'
 Plug 'tpope/vim-sleuth'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " GUI enhancements
 Plug 'itchyny/vim-gitbranch'
@@ -240,7 +265,11 @@ command! -bang -nargs=* Ag
 " --- majutsushi/tagbar ---
 let g:tagbar_map_nexttag = "<C-o>"
 nnoremap <C-t> :TagbarToggle<CR>
-let g:tagbar_ctags_bin = '/snap/bin/ctags'
+if Is_WSL()
+    let g:tagbar_ctags_bin = '/usr/bin/ctags'
+else " ubuntu
+    let g:tagbar_ctags_bin = '/snap/bin/ctags'
+endif
 let g:tagbar_use_cache = 0
 
 " rust
@@ -277,6 +306,13 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><C-j> <Plug>(committia-scroll-diff-down-half)
     imap <buffer><C-k> <Plug>(committia-scroll-diff-up-half)
 endfunction
+
+" --- nvim-telescope/telescope.nvim ---
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " =============================================================================
 " # Color
