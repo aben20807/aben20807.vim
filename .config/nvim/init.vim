@@ -199,8 +199,8 @@ let g:runner_cpp_compile_options = "-std=c++17 -Wall -lm -O2 -pipe"
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <expr> <DOWN> coc#pum#visible() ? coc#pum#next(1) : ""
-inoremap <expr> <UP> coc#pum#visible() ? "coc#pum#prev(1)" : ""
+inoremap <expr> <DOWN> coc#pum#visible() ? coc#pum#next(1) : "<DOWN>"
+inoremap <expr> <UP> coc#pum#visible() ? coc#pum#prev(1) : "<UP>"
 " inoremap <silent><expr> <TAB>
 "             \ pumvisible() ? coc#_select_confirm() :
 "             \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -339,8 +339,6 @@ vnoremap L $
 " Ref: https://stackoverflow.com/questions/3458689/how-to-move-screen-without-moving-cursor-in-vim
 nnoremap <Up> <C-y>
 nnoremap <Down> <C-e>
-inoremap <Up> <Up>
-inoremap <Down> <Down>
 
 " Left and right can switch buffers
 nnoremap <left> :bp<CR>
