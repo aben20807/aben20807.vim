@@ -1,6 +1,8 @@
 aben20807.vim
 ===
 
+__Check https://github.com/aben20807/dotfiles instead__
+
 ## screenshot
 
 ![screenshot](https://imgur.com/8aNemHB.png)
